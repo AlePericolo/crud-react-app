@@ -1,6 +1,5 @@
 import React from 'react';
 import Service from '../Service';
-import { Link } from 'react-router-dom';
 
 export default class DeleteButton extends React.Component {
 

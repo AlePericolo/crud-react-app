@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Service from '../Service';
-import Table from '../Table';
 import Grid from '../Grid';
-import List from '../List';
 import Title from '../common/Title'
 import { Link } from 'react-router-dom';
 
@@ -28,18 +26,6 @@ class HomePage extends Component {
     createGrid() {
         if (this.state.data instanceof Array) {
             return <Grid data={this.state.data} />
-        }
-    }
-
-    createTable() {
-        if (this.state.data instanceof Array) {
-            return <Table data={this.state.data} />
-        }
-    }
-
-    createList() {
-        if (this.state.data instanceof Array) {
-            return <List data={this.state.data} />
         }
     }
 

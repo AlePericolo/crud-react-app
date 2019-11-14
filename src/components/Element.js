@@ -2,16 +2,16 @@ import React from 'react';
 
 export default class Element extends React.Component {
 
-    constructor(props) {
-        super(props)
-        //console.log(this.props);
-    }
-
     render() {
         return this.props.keys.map((key, index) => {
             return (
                 <div className="border-bottom">
-                    <Item index={index} k={key} v={this.props.element[key]} />
+                    <div className="row">
+                        <strong className="col-xs-12 col-sm-6">{key}</strong>
+                        <div className="col-xs-12 col-sm-6">
+                            <Item index={index} k={key} v={this.props.element[key]} />
+                        </div>
+                    </div>
                 </div>
             )
         })
@@ -21,28 +21,15 @@ export default class Element extends React.Component {
 const Item = (props) => {
     if (props.v instanceof Array) {
         return (
-            <div className="row">
-                <strong className="col-xs-12 col-sm-6">{props.k}</strong>
-                <div className="col-xs-12 col-sm-6">
-                    <List data={props.v} />
-                </div>
-            </div>
+            <List data={props.v} />
         )
     } else if (props.v instanceof Object) {
         return (
-            <div className="row">
-                <strong className="col-xs-12 col-sm-6">{props.k}</strong>
-                <div className="col-xs-12 col-sm-6">
-                    <Element element={props.v} keys={Object.keys(props.v)} />
-                </div>
-            </div>
+            <Element element={props.v} keys={Object.keys(props.v)} />
         )
     } else {
         return (
-            <div className="row">
-                <strong className="col-xs-12 col-sm-6">{props.k}</strong>
-                <div className="col-xs-12 col-sm-6">{props.v}</div>
-            </div>
+            <div>{props.v}</div>
         )
     }
 }

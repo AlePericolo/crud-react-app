@@ -4,11 +4,6 @@ import DeleteButton from './common/DeleteButton';
 
 export default class Grid extends React.Component {
 
-    constructor(props) {
-        super(props)
-        //console.log(this.props);
-    }
-
     getKeys = function () {
         return Object.keys(this.props.data[0]);
     }
