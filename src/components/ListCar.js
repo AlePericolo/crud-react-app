@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Service from './Service';
 import Table from './Table';
+import Grid from './Grid';
 import { Link } from 'react-router-dom';
 
 class ListCar extends Component {
@@ -22,6 +23,12 @@ class ListCar extends Component {
             })
     }
 
+    createGrid() {
+        if (this.state.data instanceof Array) {
+            return <Grid data={this.state.data} />
+        }
+    }
+
     createTable() {
         if (this.state.data instanceof Array) {
             return <Table data={this.state.data} />
@@ -33,7 +40,7 @@ class ListCar extends Component {
             <div className="container">
                 <h3>List of Cars</h3>
                 <Link to={"/add/"} >Add New Car</Link>
-                {this.createTable()}
+                {this.createGrid()}
             </div>
         );
     }
