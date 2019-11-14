@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import DeleteButton from './common/DeleteButton';
 
 
 export default class Table extends React.Component {

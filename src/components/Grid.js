@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import DeleteButton from './common/DeleteButton';
 import Title from './common/Title'
 import { Link } from 'react-router-dom';
 
