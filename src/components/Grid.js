@@ -54,14 +54,40 @@ export default class Grid extends React.Component {
 const RenderContent = (props) => {
     return props.keys.map((key, index) => {
         if(index > 0){
-        return (
-            <div key={index}>
-                <div className="row">
-                    <label className="col-sm-4 text-right">{props.keys[index]}:</label>
-                    <div className="col-sm-8">{props.data[key].toString()}</div>
+            return (
+                <div key={index}>
+                    <div className="row">
+                        <label className="col-sm-4 text-right">{props.keys[index]}:</label>
+                        <HandleContent data={props.data[key]} />
+                    </div>
                 </div>
-            </div>
-        )
+            )
+        }else{
+            return '';
         }
     })
+}
+
+const HandleContent = (props) => {
+    if(props.data instanceof Array){
+        /*return 'a'*/
+        console.log(Object.keys(props));
+        /*
+        props.data.map((obj, index) => {
+            
+            console.log(obj);
+            console.log(index);
+            console.log(obj.name);
+            return (
+                <p key={index}>
+                    obj.toString()
+                </p>
+            );
+        })
+        */
+       return <div className="col-sm-8">aaaaaaaaaaaaaaaa</div>
+    }else{
+        return <div className="col-sm-8">{props.data}</div>
+    }
+    
 }
