@@ -1,6 +1,8 @@
 import React from 'react';
 import Service from '../Service';
 import Swal from "sweetalert2"
+import { Redirect } from 'react-router-dom';
+
 
 
 export default class DeleteButton extends React.Component {
@@ -21,8 +23,16 @@ export default class DeleteButton extends React.Component {
                     .then(response => {
                         console.log(response);
                         if (response.status === 200) {
-                            alert('Car deleted successfully!!');
-                            this.props.history.push('/index')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Element deleted',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                return <Redirect to='/' />
+                                console.log('suka');
+                            });
+                            //this.props.history.push('/index')
                         }
                         else {
                             alert('something went wrong!!');
