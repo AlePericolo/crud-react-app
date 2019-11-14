@@ -1,15 +1,12 @@
 import React from 'react';
 import Element from './Element';
 import DeleteButton from './common/DeleteButton';
-import Title from './common/Title'
-import { Link } from 'react-router-dom';
 
 export default class Grid extends React.Component {
 
-
     constructor(props) {
         super(props)
-        console.log(this.props);
+        //console.log(this.props);
     }
 
     getKeys = function () {
@@ -31,7 +28,7 @@ export default class Grid extends React.Component {
                 <div key={index} className="col-sm-6 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <RenderContent data={obj} keys={keys} />
+                            <RenderContent k={obj.id} data={obj} keys={keys} />
                         </div>
                         <div className="card-footer text-center">
                             <DeleteButton id={obj.id} />
@@ -56,46 +53,5 @@ export default class Grid extends React.Component {
 }
 
 const RenderContent = (props) => {
-    //console.log(props);
-    return <Element element={props.data} keys={props.keys} />
-    /*
-    return props.keys.map((key, index) => {
-        if (index > 0) {
-            return (
-                <div key={index}>
-                    <div className="row">
-                        <label className="col-sm-4 text-right">{props.keys[index]}:</label>
-                        <HandleContent data={props.data[key]} />
-                    </div>
-                </div>
-            )
-        } else {
-            return '';
-        }
-    })
-    */
-}
-
-const HandleContent = (props) => {
-    if (props.data instanceof Array) {
-        /*return 'a'*/
-        console.log(Object.keys(props));
-        /*
-        props.data.map((obj, index) => {
-            
-            console.log(obj);
-            console.log(index);
-            console.log(obj.name);
-            return (
-                <p key={index}>
-                    obj.toString()
-                </p>
-            );
-        })
-        */
-        return <div className="col-sm-8">aaaaaaaaaaaaaaaa</div>
-    } else {
-        return <div className="col-sm-8">{props.data}</div>
-    }
-
+    return <Element key={props.k} element={props.data} keys={props.keys} />
 }
