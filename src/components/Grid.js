@@ -1,4 +1,5 @@
 import React from 'react';
+import Element from './Element';
 import DeleteButton from './common/DeleteButton';
 import Title from './common/Title'
 import { Link } from 'react-router-dom';
@@ -6,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default class Grid extends React.Component {
 
 
-    constructor(props){
+    constructor(props) {
         super(props)
         console.log(this.props);
     }
@@ -27,10 +28,10 @@ export default class Grid extends React.Component {
         var keys = this.getKeys();
         return items.map((obj, index) => {
             return (
-                <div key={index} className="col-sm-4 mb-4">
+                <div key={index} className="col-sm-6 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <RenderContent data={obj} keys={keys}/>
+                            <RenderContent data={obj} keys={keys} />
                         </div>
                         <div className="card-footer text-center">
                             <DeleteButton id={obj.id} />
@@ -44,10 +45,8 @@ export default class Grid extends React.Component {
     render() {
         return (
             <div>
-                <Title title={'Cars'} />
-                <Link to={"/add/"} >Add New Car</Link>
                 <div className="container-fluid">
-                    <div className="row">        
+                    <div className="row">
                         {this.geContent()}
                     </div>
                 </div>
@@ -57,8 +56,11 @@ export default class Grid extends React.Component {
 }
 
 const RenderContent = (props) => {
+    //console.log(props);
+    return <Element element={props.data} keys={props.keys} />
+    /*
     return props.keys.map((key, index) => {
-        if(index > 0){
+        if (index > 0) {
             return (
                 <div key={index}>
                     <div className="row">
@@ -67,14 +69,15 @@ const RenderContent = (props) => {
                     </div>
                 </div>
             )
-        }else{
+        } else {
             return '';
         }
     })
+    */
 }
 
 const HandleContent = (props) => {
-    if(props.data instanceof Array){
+    if (props.data instanceof Array) {
         /*return 'a'*/
         console.log(Object.keys(props));
         /*
@@ -90,9 +93,9 @@ const HandleContent = (props) => {
             );
         })
         */
-       return <div className="col-sm-8">aaaaaaaaaaaaaaaa</div>
-    }else{
+        return <div className="col-sm-8">aaaaaaaaaaaaaaaa</div>
+    } else {
         return <div className="col-sm-8">{props.data}</div>
     }
-    
+
 }

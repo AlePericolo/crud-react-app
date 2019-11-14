@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Service from '../Service';
 import Table from '../Table';
 import Grid from '../Grid';
+import List from '../List';
 import Title from '../common/Title'
 import { Link } from 'react-router-dom';
 
@@ -36,9 +37,17 @@ class HomePage extends Component {
         }
     }
 
+    createList() {
+        if (this.state.data instanceof Array) {
+            return <List data={this.state.data} />
+        }
+    }
+
     render() {
         return (
             <div className="container-fluid">
+                <Title title={'Cars'} />
+                <Link to={"/add/"} >Add New Car</Link>
                 {this.createGrid()}
             </div>
         );
