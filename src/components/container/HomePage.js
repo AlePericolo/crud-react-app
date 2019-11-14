@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Service from '../Service';
 import Table from '../Table';
 import Grid from '../Grid';
+import Title from '../common/Title'
 import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
@@ -37,9 +38,7 @@ class HomePage extends Component {
 
     render() {
         return (
-            <div className="container">
-                <h3>List of Cars</h3>
-                <Link to={"/add/"} >Add New Car</Link>
+            <div className="container-fluid">
                 {this.createGrid()}
             </div>
         );

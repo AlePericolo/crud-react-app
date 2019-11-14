@@ -1,6 +1,7 @@
 import React from 'react';
 import DeleteButton from './DeleteButton';
-
+import Title from './common/Title'
+import { Link } from 'react-router-dom';
 
 export default class Grid extends React.Component {
 
@@ -26,7 +27,7 @@ export default class Grid extends React.Component {
         var keys = this.getKeys();
         return items.map((obj, index) => {
             return (
-                <div key={index} className="col-sm-6 mb-4">
+                <div key={index} className="col-sm-4 mb-4">
                     <div className="card">
                         <div className="card-body">
                             <RenderContent data={obj} keys={keys}/>
@@ -43,8 +44,12 @@ export default class Grid extends React.Component {
     render() {
         return (
             <div>
-                <div className="row">        
-                    {this.geContent()}
+                <Title title={'Cars'} />
+                <Link to={"/add/"} >Add New Car</Link>
+                <div className="container-fluid">
+                    <div className="row">        
+                        {this.geContent()}
+                    </div>
                 </div>
             </div>
         );
