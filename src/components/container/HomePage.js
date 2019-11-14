@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Service from './Service';
-import Table from './Table';
-import Grid from './Grid';
+import Service from '../Service';
+import Table from '../Table';
+import Grid from '../Grid';
 import { Link } from 'react-router-dom';
 
-class ListCar extends Component {
+class HomePage extends Component {
 
     constructor(props) {
         super(props);
@@ -46,4 +46,4 @@ class ListCar extends Component {
     }
 }
 
-export default ListCar;
+export default HomePage;

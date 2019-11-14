@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 //import App from './App';
-import ListCar from './components/ListCar';
+import HomePage from './components/container/HomePage';
 import Add from './components/Add';
 
 import * as serviceWorker from './serviceWorker';
@@ -11,9 +11,9 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
     <Router>
         <div>
-            <Route exact path='/' component={ListCar} />
+            <Route exact path='/' component={HomePage} />
             <Route path='/add' component={Add} />
-            <Route path='/index' component={ListCar} />
+            <Route path='/index' component={HomePage} />
         </div>
     </Router>,
 document.getElementById('root')
