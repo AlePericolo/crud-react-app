@@ -48,5 +48,5 @@ export default class Grid extends React.Component {
 }
 
 const RenderContent = (props) => {
-    return <Element key={props.k} element={props.data} keys={props.keys} />
+    return <Element key={props.k} data={props.data} keys={props.keys} />
 }

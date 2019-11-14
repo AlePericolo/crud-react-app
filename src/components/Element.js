@@ -7,9 +7,9 @@ export default class Element extends React.Component {
             return (
                 <div className="border-bottom">
                     <div className="row">
-                        <strong className="col-xs-12 col-sm-6">{key}</strong>
-                        <div className="col-xs-12 col-sm-6">
-                            <Item index={index} k={key} v={this.props.element[key]} />
+                        <strong className="col-xs-12 col-sm-5">{key}</strong>
+                        <div className="col-xs-12 col-sm-7">
+                            <HandleItem index={index} data={this.props.data[key]} />
                         </div>
                     </div>
                 </div>
@@ -18,25 +18,31 @@ export default class Element extends React.Component {
     }
 }
 
-const Item = (props) => {
-    if (props.v instanceof Array) {
+const HandleItem = (props) => {
+    //console.log(props);
+    if (props.data instanceof Array) {
         return (
-            <List data={props.v} />
+            <List data={props.data} />
         )
-    } else if (props.v instanceof Object) {
+    } else if (props.data instanceof Object) {
         return (
-            <Element element={props.v} keys={Object.keys(props.v)} />
+            <Element data={props.data} keys={Object.keys(props.data)} />
         )
     } else {
         return (
-            <div>{props.v}</div>
+            <Value data={props.data} />
         )
     }
 }
 
+const Value = (props) => {
+    return <div>{props.data}</div>
+}
+
 const List = (props) => {
-    var items = props.data;
-    return items.map((obj, index) => {
-        return <Element element={obj} keys={Object.keys(obj)} />
+
+    return props.data.map((obj, index) => {
+        return <Element data={obj} keys={Object.keys(obj)} />
     })
 }
+
