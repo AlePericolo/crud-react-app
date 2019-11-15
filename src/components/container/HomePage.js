@@ -16,7 +16,8 @@ class HomePage extends Component {
     componentDidMount() {
         Service.getApi('')
             .then(response => {
-                if (response.data.length > 0) {
+                //console.log(response);
+                if (response.status === 200) {
                     this.setState({ data: response.data });
                 }
                 this.setState({ loadComplete: true })
