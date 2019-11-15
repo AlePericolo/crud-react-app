@@ -8,6 +8,7 @@ class HomePage extends Component {
 
     constructor(props) {
         super(props);
+        //console.log(props);
         this.state = { data: '' };
         this.addService = new Service();
     }

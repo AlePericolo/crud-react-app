@@ -4,26 +4,13 @@ import DeleteButton from './common/DeleteButton';
 
 export default class Grid extends React.Component {
 
-    getKeys = function () {
-        return Object.keys(this.props.data[0]);
-    }
-
-    getLabel = function () {
-        var keys = this.getKeys();
-        return keys.map((key, index) => {
-            return <th key={key}>{key.toUpperCase()}</th>
-        })
-    }
-
     geContent = function () {
-        var items = this.props.data;
-        var keys = this.getKeys();
-        return items.map((obj, index) => {
+        return this.props.data.map((obj, index) => {
             return (
                 <div key={index} className="col-sm-6 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <RenderContent k={obj.id} data={obj} keys={keys} />
+                            <Element data={obj} keys={Object.keys(obj)} />
                         </div>
                         <div className="card-footer text-center">
                             <DeleteButton id={obj.id} />
@@ -45,8 +32,4 @@ export default class Grid extends React.Component {
             </div>
         );
     }
-}
-
-const RenderContent = (props) => {
-    return <Element key={props.k} data={props.data} keys={props.keys} />
 }

@@ -1,9 +1,7 @@
 import React from 'react';
 import Service from '../Service';
 import Swal from "sweetalert2"
-import { Redirect } from 'react-router-dom';
-
-
+//import { Redirect } from 'react-router-dom';
 
 export default class DeleteButton extends React.Component {
 
@@ -29,14 +27,23 @@ export default class DeleteButton extends React.Component {
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then(() => {
-                                return <Redirect to='/' />
-                                console.log('suka');
+                                return window.location.reload();
+                                //this.props.history.push('/index')
+                                //return <Redirect to='/' />
                             });
-                            //this.props.history.push('/index')
                         }
                         else {
-                            alert('something went wrong!!');
-                            this.props.history.push('/index')
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Something went wrong',
+                                showConfirmButton: false,
+                                timer: 1500
+                            }).then(() => {
+                                return window.location.reload();
+                                //this.props.history.push('/index')
+                                //return <Redirect to='/' />
+                            });
+
                         }
                     }).catch((error) => {
                         console.log("error-----------", error)
