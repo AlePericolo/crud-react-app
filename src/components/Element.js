@@ -3,7 +3,7 @@ import React from 'react';
 export default class Element extends React.Component {
 
     render() {
-        //console.log(this.props);
+        console.log(this.props);
         return this.props.keys.map((key, index) => {
             return (
                 <div className="border-bottom">

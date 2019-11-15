@@ -4,19 +4,23 @@ import { Route, Link } from 'react-router-dom'
 import EditPage from './container/EditPage';
 import DeletePage from './container/DeletePage';
 
-export default class Grid extends React.Component {
+export default class Test extends React.Component {
 
-    geContent = function () {
-        /*provare a spostare il map nel component Element*/
 
-        console.log(this.props.data);
+    handleElement = function(data){
+        console.log(data);
+        return(
+            JSON.stringify(data)
+        )
+    }
+
+    handleData = function () {
         return this.props.data.map((obj, index) => {
-
             return (
-                <div key={index} className="col-sm-6 mb-4">
+                <div key={obj.id} className="col-sm-6 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <Element data={obj} keys={Object.keys(obj)} />
+                            {this.handleElement(obj)}
                         </div>
                         <div className="card-footer text-center">
                             <Link to={`/edit/${obj.id}`}>
@@ -24,8 +28,7 @@ export default class Grid extends React.Component {
                             </Link>
                             <Link to={`/delete/${obj.id}`}>
                                 <button type="button" className="btn btn-danger mx-2">Delete</button>
-                            </Link>
-                            
+                            </Link>    
                         </div>
                     </div>
                     <Route path="/edit/:id" component={EditPage} />
@@ -36,14 +39,12 @@ export default class Grid extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="container-fluid">
-                    <div className="row">
-                        {this.geContent()}
-                    </div>
-                </div>
+        return(
+            <div className="container-fluid">
+            <div className="row">
+                {this.handleData()}
             </div>
+        </div>
         );
     }
 }
