@@ -9,15 +9,17 @@ class HomePage extends Component {
     constructor(props) {
         super(props);
         //console.log(props);
-        this.state = { data: '' };
+        this.state = { data: '', loadComplete: false };
         this.addService = new Service();
     }
 
     componentDidMount() {
         Service.getApi('')
             .then(response => {
-                //console.log(response);
-                this.setState({ data: response.data });
+                if (response.data.length > 0) {
+                    this.setState({ data: response.data });
+                    this.setState({ loadComplete: true })
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -25,7 +27,7 @@ class HomePage extends Component {
     }
 
     createGrid() {
-        if (this.state.data instanceof Array) {
+        if (this.state.data instanceof Array && this.state.loadComplete) {
             return <Grid data={this.state.data} />
         }
     }
@@ -34,7 +36,13 @@ class HomePage extends Component {
         return (
             <div className="container-fluid">
                 <Title title={'Cars'} />
-                <Link to={"/add/"} >Add New Car</Link>
+                <div className="container-fluid">
+                    <div className="clearfix mb-2">
+                        <Link to={"/add/"} >
+                            <button type="button" className="btn btn-success float-right">Add</button>
+                        </Link>
+                    </div>
+                </div>
                 {this.createGrid()}
             </div>
         );

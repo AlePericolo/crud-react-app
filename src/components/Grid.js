@@ -1,6 +1,7 @@
 import React from 'react';
 import Element from './Element';
 import DeleteButton from './common/DeleteButton';
+import { Link } from 'react-router-dom';
 
 export default class Grid extends React.Component {
 
@@ -13,6 +14,9 @@ export default class Grid extends React.Component {
                             <Element data={obj} keys={Object.keys(obj)} />
                         </div>
                         <div className="card-footer text-center">
+                            <Link to={"/add/"} params={{ id: obj.id }} >
+                                <button type="button" className="btn btn-warning mr-2">Edit</button>
+                            </Link>
                             <DeleteButton id={obj.id} />
                         </div>
                     </div>
