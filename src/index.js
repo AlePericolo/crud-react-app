@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
 //import App from './App';
 import HomePage from './components/container/HomePage';
-import Add from './components/Add';
+//import FormPage from './components/container/FormPage';
+//import Add from './components/Add';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -12,8 +13,6 @@ ReactDOM.render(
     <Router>
         <div>
             <Route exact path='/' component={HomePage} />
-            <Route path='/add' component={Add} />
-            <Route path='/index' component={HomePage} />
         </div>
     </Router>,
 document.getElementById('root')

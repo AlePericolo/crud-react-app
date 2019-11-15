@@ -41,7 +41,7 @@ class HomePage extends Component {
                 <Title title={'Cars'} />
                 <div className="container-fluid">
                     <div className="clearfix mb-2">
-                        <Link to={"/add/"} >
+                        <Link to={"/form/"} >
                             <button type="button" className="btn btn-success float-right">Add</button>
                         </Link>
                     </div>

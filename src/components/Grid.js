@@ -14,7 +14,7 @@ export default class Grid extends React.Component {
                             <Element data={obj} keys={Object.keys(obj)} />
                         </div>
                         <div className="card-footer text-center">
-                            <Link to={"/add/"} params={{ id: obj.id }} >
+                            <Link to={"/form/"} params={{ id: obj.id }} >
                                 <button type="button" className="btn btn-warning mr-2">Edit</button>
                             </Link>
                             <DeleteButton id={obj.id} />
