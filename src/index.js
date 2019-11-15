@@ -6,6 +6,7 @@ import './index.css';
 import HomePage from './components/container/HomePage';
 import NewPage from './components/container/NewPage';
 import EditPage from './components/container/EditPage.js';
+import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';
 
 const routing = (
@@ -32,6 +33,7 @@ const routing = (
             <Route exact path="/" component={HomePage} />
             <Route exact path="/new" component={NewPage} />
             <Route exact path="/edit/:id" component={EditPage} />
+            <Route exact path="/delete/:id" component={DeletePage} />
             <Route component={Notfound} />
         </Switch>
       </div>
