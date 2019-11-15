@@ -1,0 +1,21 @@
+create app:
+    npx create-react-app "app-name"
+    cd "app-name"
+
+install:
+	npm install
+	cd "project-path/app-name" 
+    npm install
+
+start:
+    npm start
+
+database:
+    cd "database-path/"
+    json-server --watch "name-database.json" --port 3001
+
+modules:
+    npm install axios --save
+    npm install react-router-dom --save
+    npm install bootstrap --save
+    npm install sweetalert2 --save

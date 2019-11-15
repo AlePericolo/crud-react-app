@@ -3,6 +3,7 @@ import Service from '../Service';
 import Grid from '../Grid';
 import Title from '../common/Title'
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 class HomePage extends Component {
 
@@ -18,21 +19,23 @@ class HomePage extends Component {
             .then(response => {
                 if (response.data.length > 0) {
                     this.setState({ data: response.data });
-                    this.setState({ loadComplete: true })
                 }
+                this.setState({ loadComplete: true })
             })
             .catch(function (error) {
+                Swal.fire(error.toString())
                 console.log(error);
             })
     }
 
     createGrid() {
-        if (this.state.data instanceof Array && this.state.loadComplete) {
+        if (this.state.data instanceof Array) {
             return <Grid data={this.state.data} />
         }
     }
 
     render() {
+        if(this.state.loadComplete){
         return (
             <div className="container-fluid">
                 <Title title={'Cars'} />
@@ -45,7 +48,8 @@ class HomePage extends Component {
                 </div>
                 {this.createGrid()}
             </div>
-        );
+        )}
+        return '';
     }
 }
 

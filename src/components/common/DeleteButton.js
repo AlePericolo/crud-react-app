@@ -1,6 +1,6 @@
 import React from 'react';
 import Service from '../Service';
-import Swal from "sweetalert2"
+import Swal from 'sweetalert2'
 //import { Redirect } from 'react-router-dom';
 
 export default class DeleteButton extends React.Component {
