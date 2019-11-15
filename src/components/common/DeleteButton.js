@@ -1,7 +1,8 @@
 import React from 'react';
 import Service from '../Service';
 import Swal from 'sweetalert2'
-//import { Redirect } from 'react-router-dom';
+import { Route } from 'react-router';
+import HomePage from '../container/HomePage';
 
 export default class DeleteButton extends React.Component {
 
@@ -27,7 +28,10 @@ export default class DeleteButton extends React.Component {
                                 showConfirmButton: false,
                                 timer: 1500
                             }).then(() => {
-                                return window.location.reload();
+                                return (<Route path='/' component={ (props) => (
+                                            <HomePage timestamp={new Date().toString()} {...props} />
+                                        )}/>);
+                                //return window.location.reload();
                                 //this.props.history.push('/index')
                                 //return <Redirect to='/' />
                             });
@@ -43,7 +47,6 @@ export default class DeleteButton extends React.Component {
                                 //this.props.history.push('/index')
                                 //return <Redirect to='/' />
                             });
-
                         }
                     }).catch((error) => {
                         console.log("error-----------", error)

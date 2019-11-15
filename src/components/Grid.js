@@ -1,12 +1,16 @@
 import React from 'react';
 import Element from './Element';
 import DeleteButton from './common/DeleteButton';
-import { Link } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom'
+import EditPage from './container/EditPage';
 
 export default class Grid extends React.Component {
 
     geContent = function () {
+        /*provare a spostare il map nel component Element*/
+
         return this.props.data.map((obj, index) => {
+
             return (
                 <div key={index} className="col-sm-6 mb-4">
                     <div className="card">
@@ -14,12 +18,13 @@ export default class Grid extends React.Component {
                             <Element data={obj} keys={Object.keys(obj)} />
                         </div>
                         <div className="card-footer text-center">
-                            <Link to={"/form/"} params={{ id: obj.id }} >
+                            <Link to={`/edit/${obj.id}`}>
                                 <button type="button" className="btn btn-warning mr-2">Edit</button>
                             </Link>
                             <DeleteButton id={obj.id} />
                         </div>
                     </div>
+                    <Route path="/edit/:id" component={EditPage} />
                 </div>
             )
         })
