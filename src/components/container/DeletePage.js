@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Service from '../Service';
 import Title from '../common/Title'
 import Swal from 'sweetalert2'
+import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom'
+
+
 
 class DeletePage extends Component {
 
@@ -13,9 +17,10 @@ class DeletePage extends Component {
     }
 
     componentDidMount() {
+        
         const { params } = this.props.match
         const p = `/${params.id}`;
-        console.log(p);
+        
         Service.getApi(p)
             .then(response => {
                 console.log(response);
@@ -27,19 +32,63 @@ class DeletePage extends Component {
             .catch(function (error) {
                 Swal.fire(error.toString())
                 console.log(error);
-            })
+            });
     }
 
+    delete = () => {
+
+        const { params } = this.props.match
+        const p = `/${params.id}`;
+
+        Service.deleteApi(p)
+            .then(response => {
+                console.log(response);
+                if (response.status === 200) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Element deleted',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        return (<Redirect to="/" />);
+                    });
+                }
+                else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Something went wrong',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        return (<Redirect to="/" />);
+                    });
+                }
+                }).catch((error) => {
+                    console.log("error-----------", error)
+                });
+    }
 
     render() {
 
         return (
             <div className="container-fluid">
                 <Title title={'Delete'} />
-                <h2>aaa</h2>
+                <div className="card">
+                    <div className="card-header">
+                        <h2>Delete this element?</h2>
+                    </div>
+                    <div className="card-body">Content</div> 
+                    <div className="card-footer text-center">
+                        <Link to="/">
+                            <button type="button" className="btn btn-info mx-2">Go Back</button>
+                        </Link>   
+                        <button type="button" onClick={this.delete} className="btn btn-danger mx-2">Delete</button>
+                    </div>
+                </div>
             </div>
         )
       }
 }
+
 
 export default DeletePage;

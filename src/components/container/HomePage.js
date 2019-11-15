@@ -36,12 +36,13 @@ class HomePage extends Component {
     render() {
 
         if(this.state.loadComplete){
-        return (
-            <div className="container-fluid">
-                <Title title={'Cars'} />
-                {this.createGrid()}
-            </div>
-        )}
+            return (
+                <div className="container-fluid">
+                    <Title title={'Cars'} />
+                    {this.createGrid()}
+                </div>
+            )
+        }
         return '';
     }
 }
