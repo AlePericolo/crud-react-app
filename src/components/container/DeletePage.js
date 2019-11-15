@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Service from '../Service';
 import Title from '../common/Title'
 import Swal from 'sweetalert2'
-import { Redirect } from 'react-router';
 import { Link } from 'react-router-dom'
-
-
 
 class DeletePage extends Component {
 
@@ -50,7 +47,7 @@ class DeletePage extends Component {
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        return (<Redirect to="/" />);
+                        this.props.history.push('/');
                     });
                 }
                 else {
@@ -60,7 +57,7 @@ class DeletePage extends Component {
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
-                        return (<Redirect to="/" />);
+                        this.props.history.push('/');
                     });
                 }
                 }).catch((error) => {
