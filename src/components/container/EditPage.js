@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
 import Title from '../common/Title'
-import HandleFormObject from '../common/HandleFormObject'
+import HandleFormEdit from '../common/HandleFormEdit'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -75,7 +75,7 @@ class EditPage extends Component {
                     <Title title={'Edit'} />
                     <div className="card">
                         <div className="card-body">
-                            <HandleFormObject data={this.state.data} />
+                            <HandleFormEdit data={this.state.data} />
                         </div>
                         <div className="card-footer text-center">
                             <Link to="/">

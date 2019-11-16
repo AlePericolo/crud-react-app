@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class HandleFormObject extends React.Component {
+export default class HandleFormEdit extends React.Component {
 
     constructor(props) {
         super(props);
@@ -13,12 +13,12 @@ export default class HandleFormObject extends React.Component {
             return object.map((obj, k) => {
                 return (
                     <div key={k}>
-                        <HandleFormObject data={obj} />
+                        <HandleFormEdit data={obj} />
                     </div>
                 )
             })
         } else {
-            return <HandleFormObject data={object} />
+            return <HandleFormEdit data={object} />
         }
     }
 
@@ -33,7 +33,7 @@ export default class HandleFormObject extends React.Component {
         } else {
             return (
                 <div>
-                    <input name={key} type="text" className="form-control" onChange={this.handleChange} value={element}></input>
+                    <input name={key} id={key} type={typeof element} className="form-control" disabled={key === 'id'} onChange={this.handleChange} value={element}></input>
                 </div>
             )
         }
@@ -50,10 +50,11 @@ export default class HandleFormObject extends React.Component {
 
         return Object.keys(this.state.data).map((key, index) => {
             return (
-                <div key={index} className="container-fluid">
-                    <div className="row border-bottom">
-                        <div className="col"><strong>{key}:</strong></div>
-                        <div className="col">
+                <div key={index} className="container">
+                    {/*<div className="form-group">*/}
+                    <div className="form-group row">
+                        <label htmlFor={key} className="col-sm-4 col-form-label text-right"><strong>{key}:</strong></label>
+                        <div class="col-sm-8">
                             {this.handleElement(this.state.data[key], key)}
                         </div>
                     </div>
