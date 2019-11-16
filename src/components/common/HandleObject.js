@@ -36,12 +36,11 @@ export default class HandleObject extends React.Component {
                     <button type="button" className="btn btn-outline-dark btn-sm" title="Show" data-toggle="modal" data-target={`#modal${this.props.data.id}`}>
                         <FontAwesomeIcon icon="eye" size="xs" />
                     </button>
-
                     <div className="modal fade" id={`modal${this.props.data.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLongTitle">{key}</h5>
+                                    <h5 className="modal-title" id="exampleModalLongTitle">{key.toUpperCase()}</h5>
                                 </div>
                                 <div className="modal-body">
                                     {this.handleSubElement(element)}
@@ -78,8 +77,8 @@ export default class HandleObject extends React.Component {
         return keys.map((key, index) => {
             return (
                 <div key={index} className="container-fluid">
-                    <div className="row border-bottom">
-                        <div className="col"><strong>{key}:</strong></div>
+                    <div className="row">
+                        <div className="col"><strong>{key.toUpperCase()}:</strong></div>
                         <div className="col">
                             {this.handleElement(obj[key], key)}
                         </div>

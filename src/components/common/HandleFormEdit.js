@@ -53,7 +53,7 @@ export default class HandleFormEdit extends React.Component {
                 <div key={index} className="container">
                     {/*<div className="form-group">*/}
                     <div className="form-group row">
-                        <label htmlFor={key} className="col-sm-4 col-form-label text-right"><strong>{key}:</strong></label>
+                        <label htmlFor={key} className="col-sm-4 col-form-label text-right"><strong>{key.toUpperCase()}:</strong></label>
                         <div class="col-sm-8">
                             {this.handleElement(this.state.data[key], key)}
                         </div>

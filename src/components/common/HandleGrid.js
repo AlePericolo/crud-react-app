@@ -10,7 +10,7 @@ export default class HandleGrid extends React.Component {
     handleGrid = () => {
         return this.props.data.map((obj, i) => {
             return (
-                <div key={i} className="col-sm-6 mb-4">
+                <div key={i} className="col-md-4 col-sm-12 mb-4">
                     <div className="card">
                         <div className="card-body">
                             <HandleObject data={obj} />
