@@ -11,8 +11,9 @@ import Notfound from './components/common/NotFound';
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEye, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
-library.add(fab, faEye, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes)
+import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+library.add(fab, faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes)
 
 const routing = (
     <Router>
@@ -24,13 +25,22 @@ const routing = (
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav">
+                <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul className="navbar-nav justify-content-end">
+                        {/*
                         <li className="nav-item">
                             <div className="nav-link">
                                 <Link to="/new">New</Link>
                             </div>
                         </li>
+                        */}
+                        <form className="form-inline">
+                            <Link to="/new">
+                                <button className="btn btn-outline-success btn-sm" type="button" title="Go to New">
+                                    Add new <FontAwesomeIcon icon="car-alt" />
+                                </button>
+                            </Link>
+                        </form>
                     </ul>
                 </div>
             </nav>

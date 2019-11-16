@@ -1,6 +1,6 @@
 import React from 'react';
 import Service from '../api/Service';
-import Title from '../common/Title'
+//import Title from '../common/Title'
 import HandleObject from '../common/HandleObject'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -67,24 +67,30 @@ class DeletePage extends React.Component {
 
         if (this.state.loadComplete) {
             return (
-                <div className="container-fluid" >
-                    <Title title={'Delete'} />
-                    <div className="card">
-                        <div className="card-header">
-                            <h2> Delete this element ? </h2>
-                        </div>
-                        <div className="card-body">
-                            <HandleObject data={this.state.data} />
-                        </div>
-                        <div className="card-footer text-center">
-                            <Link to="/">
-                                <button type="button" className="btn btn-info mx-2" title="Go back">
-                                    <FontAwesomeIcon icon="arrow-left" size="md" />
-                                </button>
-                            </Link>
-                            <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
-                                <FontAwesomeIcon icon="trash-alt" size="md" />
-                            </button>
+                <div className="container" >
+                    <div className="row justify-content-center">
+                        <div className="col-10">
+                            {/*<Title title={'Delete'} />*/}
+                            <div className="card my-3">
+                                <div className="card-header bg-dark text-danger text-center">
+                                    <h2> Delete this element ? </h2>
+                                </div>
+                                <div className="card-body">
+                                    <div className="container">
+                                        <HandleObject data={this.state.data} />
+                                    </div>
+                                </div>
+                                <div className="card-footer bg-dark text-center">
+                                    <Link to="/">
+                                        <button type="button" className="btn btn-info mx-2" title="Go back">
+                                            <FontAwesomeIcon icon="arrow-left" size="md" />
+                                        </button>
+                                    </Link>
+                                    <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
+                                        <FontAwesomeIcon icon="trash-alt" size="md" />
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

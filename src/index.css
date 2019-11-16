@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('./assets/img/cars.jpg');
+  background-image: url('./assets/img/road.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
@@ -17,4 +17,15 @@ code {
     monospace;
 }
 
-nav a{color: #ced4da !important}
+.bg-dark{background-color: #1e1e21 !important}
+
+nav a
+{
+  color: #ced4da !important
+}
+
+.card
+{
+  background-color: rgba(0,0,0,0.8) !important;
+  color: #fff !important
+}

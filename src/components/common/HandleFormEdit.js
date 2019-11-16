@@ -33,7 +33,7 @@ export default class HandleFormEdit extends React.Component {
         } else {
             return (
                 <div>
-                    <input name={key} id={key} type={typeof element} className="form-control" disabled={key === 'id'} onChange={this.handleChange} value={element}></input>
+                    <input name={key} id={key} type={typeof element} className="form-control form-control-sm" disabled={key === 'id'} onChange={this.handleChange} value={element}></input>
                 </div>
             )
         }
@@ -50,13 +50,10 @@ export default class HandleFormEdit extends React.Component {
 
         return Object.keys(this.state.data).map((key, index) => {
             return (
-                <div key={index} className="container">
-                    {/*<div className="form-group">*/}
-                    <div className="form-group row">
-                        <label htmlFor={key} className="col-sm-4 col-form-label text-right"><strong>{key.toUpperCase()}:</strong></label>
-                        <div class="col-sm-8">
-                            {this.handleElement(this.state.data[key], key)}
-                        </div>
+                <div key={index} className="form-group row">
+                    <label htmlFor={key} className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right"><strong>{key.toUpperCase()}:</strong></label>
+                    <div className="col-md-8 col-sm-12">
+                        {this.handleElement(this.state.data[key], key)}
                     </div>
                 </div>
             )

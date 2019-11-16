@@ -10,12 +10,12 @@ export default class HandleGrid extends React.Component {
     handleGrid = () => {
         return this.props.data.map((obj, i) => {
             return (
-                <div key={i} className="col-md-4 col-sm-12 mb-4">
+                <div key={i} className="col-md-4 col-sm-12 my-3">
                     <div className="card">
                         <div className="card-body">
                             <HandleObject data={obj} />
                         </div>
-                        <div className="card-footer text-center">
+                        <div className="card-footer bg-dark text-center">
                             <Link to={`/edit/${obj.id}`}>
                                 <button type="button" className="btn btn-outline-warning btn-sm mx-2" title="Go to Edit">
                                     <FontAwesomeIcon icon="pencil-alt" size="xs" />

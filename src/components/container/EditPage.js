@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
-import Title from '../common/Title'
+//import Title from '../common/Title'
 import HandleFormEdit from '../common/HandleFormEdit'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -71,21 +71,30 @@ class EditPage extends Component {
 
         if (this.state.loadComplete) {
             return (
-                <div className="container-fluid" >
-                    <Title title={'Edit'} />
-                    <div className="card">
-                        <div className="card-body">
-                            <HandleFormEdit data={this.state.data} />
-                        </div>
-                        <div className="card-footer text-center">
-                            <Link to="/">
-                                <button type="button" className="btn btn-info mx-2" title="Go back">
-                                    <FontAwesomeIcon icon="arrow-left" size="lg" />
-                                </button>
-                            </Link>
-                            <button onClick={this.edit} className="btn btn-success mx-2" title="Save">
-                                <FontAwesomeIcon icon="save" size="lg" />
-                            </button>
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-10">
+                            {/*<Title title={'Edit'} />*/}
+                            <div className="card my-3">
+                                <div className="card-header bg-dark text-warning text-center">
+                                    <h2> Edit this element </h2>
+                                </div>
+                                <div className="card-body">
+                                    <div className="container">
+                                        <HandleFormEdit data={this.state.data} />
+                                    </div>
+                                </div>
+                                <div className="card-footer bg-dark text-center">
+                                    <Link to="/">
+                                        <button type="button" className="btn btn-info mx-2" title="Go back">
+                                            <FontAwesomeIcon icon="arrow-left" size="lg" />
+                                        </button>
+                                    </Link>
+                                    <button onClick={this.edit} className="btn btn-success mx-2" title="Save">
+                                        <FontAwesomeIcon icon="save" size="lg" />
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
