@@ -38,14 +38,13 @@ class EditPage extends Component {
 
         console.log(this.state.data);
 
-        /*
-        Service.deleteApi(`/${this.state.id}`)
+        Service.patchApi(`/${this.state.id}`, this.state.data)
             .then(response => {
                 //console.log(response);
                 if (response.status === 200) {
                     Swal.fire({
                         icon: 'success',
-                        title: 'Element deleted',
+                        title: 'Element edited',
                         showConfirmButton: false,
                         timer: 1500
                     }).then(() => {
@@ -64,7 +63,6 @@ class EditPage extends Component {
             }).catch((error) => {
                 console.log("error-----------", error)
             });
-        */
     }
 
     render() {
