@@ -1,11 +1,12 @@
 import React from 'react'
-const Notfound = () =>  {
+
+const Notfound = () => {
     return (
         <div className="container">
             <div className="jumbotron mt-5">
                 <h1>Not found</h1>
-                <p>Check your path..</p>   
-            </div>   
+                <p>Check your path..</p>
+            </div>
         </div>
     )
 }
