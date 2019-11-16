@@ -20,3 +20,6 @@ modules:
     npm install bootstrap --save
     npm install sweetalert2 --save
     npm install valid-url --save
+    npm install @fortawesome/fontawesome-svg-core --save
+    npm install @fortawesome/free-solid-svg-icons --save
+    npm install @fortawesome/react-fontawesome --save

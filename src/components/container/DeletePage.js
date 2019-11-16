@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
 class DeletePage extends React.Component {
 
     constructor(props) {
