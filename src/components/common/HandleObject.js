@@ -3,12 +3,40 @@ import React from 'react'
 export default class HandleObject extends React.Component {
 
 
-    handleElement = (element) => {
-        if (typeof (element) === 'object') {
-            return <HandleObject data={element} />
+    handleSubElement = (object) => {
+
+        if (object instanceof Array) {
+            return object.map((obj, k) => {
+                return (
+                    <div key={k}>
+                        <HandleObject data={obj} />
+                    </div>
+                )
+            })
+        } else {
+            return <HandleObject data={object} />
+        }
+    }
+
+    handleElement = (element, index) => {
+
+        if (element instanceof Object) {
+
+            return (
+                <div>
+                    <button className="btn btn-primary btn-sm" type="button" data-toggle="collapse" data-target={`#collapse${this.props.data.id}`} aria-expanded="false" aria-controls="collapseExample">
+                        Show
+                    </button>
+                    <div className="collapse mt-2" id={`collapse${this.props.data.id}`}>
+                        {this.handleSubElement(element)}
+                    </div>
+                </div>
+            )
+
         } else {
             return element
         }
+
     }
 
     render() {
@@ -16,19 +44,10 @@ export default class HandleObject extends React.Component {
         const obj = this.props.data;
         const keys = Object.keys(obj);
 
-        return keys.map((key, j) => {
+        return keys.map((key, index) => {
             return (
-                /*
-                <ul key={j} className="list-group list-group-flush">
-                    <li className="list-group-item">
-                        <strong>{key}:</strong>
-                        {this.handleElement(obj[key])}
-                    </li>
-                </ul>
-                */
-                <div key={j} className="container-fluid">
-                    <div key={j} className="row border-bottom">
-
+                <div key={index} className="container-fluid">
+                    <div className="row border-bottom">
                         <div className="col"><strong>{key}:</strong></div>
                         <div className="col">
                             {this.handleElement(obj[key])}

@@ -21,7 +21,6 @@ class DeletePage extends React.Component {
 
     componentDidMount() {
 
-
         Service.getApi(`/${this.state.id}`)
             .then(response => {
                 if (response.status === 200) {
@@ -33,7 +32,6 @@ class DeletePage extends React.Component {
                 Swal.fire(error.toString())
                 console.log(error);
             });
-
     }
 
     delete = () => {
