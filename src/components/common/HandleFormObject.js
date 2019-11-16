@@ -4,8 +4,6 @@ export default class HandleFormObject extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.data)
-
         this.state = { data: this.props.data };
     }
 
@@ -24,11 +22,7 @@ export default class HandleFormObject extends React.Component {
         }
     }
 
-
-
     handleElement = (element, key) => {
-
-        //console.log(typeof (element));
 
         if (element instanceof Object) {
             return (
@@ -37,43 +31,34 @@ export default class HandleFormObject extends React.Component {
                 </div>
             )
         } else {
-
-            return (<div>
-                <input name={key} type="text" className="form-control" onChange={this.handleChange} value={element}></input>
-            </div>)
+            return (
+                <div>
+                    <input name={key} type="text" className="form-control" onChange={this.handleChange} value={element}></input>
+                </div>
+            )
         }
-
     }
 
     handleChange = (e) => {
 
-        console.log(e);
-        const newValue = e.target.value;
-        const key = e.target.name;
-
-        /*FUNZIONA!!!*/
-        let newState = Object.assign({}, this.state);
-        console.log(newState.data[key]);
-        newState.data[key] = newValue;
+        const newState = { ...this.state }
+        newState.data[e.target.name] = e.target.value;
         this.setState(newState);
     }
 
-
     render() {
 
-        return Object.keys(this.props.data).map((key, index) => {
+        return Object.keys(this.state.data).map((key, index) => {
             return (
                 <div key={index} className="container-fluid">
                     <div className="row border-bottom">
                         <div className="col"><strong>{key}:</strong></div>
                         <div className="col">
-                            {this.handleElement(this.props.data[key], key)}
+                            {this.handleElement(this.state.data[key], key)}
                         </div>
                     </div>
                 </div>
             )
         })
-
     }
-
 }

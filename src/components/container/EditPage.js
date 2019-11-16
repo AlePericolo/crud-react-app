@@ -83,7 +83,7 @@ class EditPage extends Component {
                                     <FontAwesomeIcon icon="arrow-left" size="lg" />
                                 </button>
                             </Link>
-                            <button type="submit" className="btn btn-success mx-2" title="Save">
+                            <button onClick={this.edit} className="btn btn-success mx-2" title="Save">
                                 <FontAwesomeIcon icon="save" size="lg" />
                             </button>
                         </div>
