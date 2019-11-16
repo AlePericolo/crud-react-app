@@ -11,8 +11,8 @@ import Notfound from './components/common/NotFound';
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEye, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-library.add(fab, faEye, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft)
+import { faEye, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+library.add(fab, faEye, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft)
 
 const routing = (
     <Router>
