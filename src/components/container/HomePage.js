@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Service from '../Service';
-import Grid from '../Grid';
 import Title from '../common/Title'
+import Grid from '../action/Grid';
 import Swal from 'sweetalert2'
 
-import Test from '../Test';
 
 class HomePage extends Component {
 
@@ -32,9 +31,8 @@ class HomePage extends Component {
 
     createGrid() {
         if (this.state.data instanceof Array && this.state.data.length > 0) {
-            //return <Grid data={this.state.data} />
-            return <Test data={this.state.data} />
-        }else{
+            return <Grid data={this.state.data} />
+        } else {
             return (
                 <div>
                     <div className="alert alert-danger" role="alert">
@@ -49,7 +47,7 @@ class HomePage extends Component {
 
     render() {
 
-        if(this.state.loadComplete){
+        if (this.state.loadComplete) {
             return (
                 <div className="container-fluid">
                     <Title title={'Cars'} />
