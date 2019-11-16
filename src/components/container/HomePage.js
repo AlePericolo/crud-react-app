@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Service from '../Service';
+import Service from '../api/Service';
 import Title from '../common/Title'
-import Grid from '../action/Grid';
+import HandleGrid from '../common/HandleGrid';
 import Swal from 'sweetalert2'
-
 
 class HomePage extends Component {
 
@@ -31,7 +30,7 @@ class HomePage extends Component {
 
     createGrid() {
         if (this.state.data instanceof Array && this.state.data.length > 0) {
-            return <Grid data={this.state.data} />
+            return <HandleGrid data={this.state.data} />
         } else {
             return (
                 <div>

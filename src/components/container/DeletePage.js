@@ -1,19 +1,18 @@
-import React, {
-    Component
-} from 'react';
-import Service from '../Service';
-import Title from '../common/Title'
-import Swal from 'sweetalert2'
-import {
-    Link
-} from 'react-router-dom'
+import React from 'react';
+import Service from '../api/Service';
 
-class DeletePage extends Component {
+import Title from '../common/Title'
+import HandleObject from '../common/HandleObject'
+import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
+class DeletePage extends React.Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
+            id: this.props.match.params.id,
             data: '',
             loadComplete: false
         };
@@ -22,24 +21,13 @@ class DeletePage extends Component {
 
     componentDidMount() {
 
-        const {
-            params
-        } = this.props.match
-        const p = `/${params.id}`;
 
-        Service.getApi(p)
+        Service.getApi(`/${this.state.id}`)
             .then(response => {
-                console.log(response);
                 if (response.status === 200) {
-                    this.setState({
-                        data: response.data
-                    });
+                    this.setState({ data: response.data });
+                    this.setState({ loadComplete: true })
                 }
-                this.setState({
-                    loadComplete: true
-                })
-            }).then(response => {
-                console.log(this.state);
             })
             .catch(function (error) {
                 Swal.fire(error.toString())
@@ -50,12 +38,7 @@ class DeletePage extends Component {
 
     delete = () => {
 
-        const {
-            params
-        } = this.props.match
-        const p = `/${params.id}`;
-
-        Service.deleteApi(p)
+        Service.deleteApi(`/${this.state.id}`)
             .then(response => {
                 //console.log(response);
                 if (response.status === 200) {
@@ -84,23 +67,29 @@ class DeletePage extends Component {
 
     render() {
 
-        return ( 
-            <div className = "container-fluid" >
-                <Title title = {'Delete'}/> 
-                <div className = "card">
-                    <div className = "card-header">
-                        <h2> Delete this element ? </h2> 
-                    </div> 
-                    <div className = "card-body"> Content </div>  
-                    <div className = "card-footer text-center">
-                        <Link to = "/">
-                            <button type = "button" className = "btn btn-info mx-2" > Go Back </button> 
-                        </Link>
-                    <button type = "button" onClick = {this.delete} className = "btn btn-danger mx-2" > Delete </button> 
-                    </div> 
-                </div> 
-            </div>
-        )
+        if (this.state.loadComplete) {
+            return (
+                <div className="container-fluid" >
+                    <Title title={'Delete'} />
+                    <div className="card">
+                        <div className="card-header">
+                            <h2> Delete this element ? </h2>
+                        </div>
+                        <div className="card-body">
+                            <HandleObject data={this.state.data} />
+                        </div>
+                        <div className="card-footer text-center">
+                            <Link to="/">
+                                <button type="button" className="btn btn-info mx-2" > Go Back </button>
+                            </Link>
+                            <button type="button" onClick={this.delete} className="btn btn-danger mx-2" > Delete </button>
+                        </div>
+                    </div>
+                </div>
+            )
+        } else {
+            return '';
+        }
     }
 }
 

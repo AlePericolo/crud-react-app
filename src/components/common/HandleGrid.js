@@ -1,22 +1,18 @@
 import React from 'react';
-import Element from './Element';
 import { Route, Link } from 'react-router-dom'
-import EditPage from './container/EditPage';
-import DeletePage from './container/DeletePage';
+import HandleObject from './HandleObject'
+import EditPage from '../container/EditPage'
+import DeletePage from '../container/DeletePage';
 
-export default class Grid extends React.Component {
+export default class HandleGrid extends React.Component {
 
-    geContent = function () {
-        /*provare a spostare il map nel component Element*/
-
-        console.log(this.props.data);
-        return this.props.data.map((obj, index) => {
-
+    handleGrid = () => {
+        return this.props.data.map((obj, i) => {
             return (
-                <div key={index} className="col-sm-6 mb-4">
+                <div key={i} className="col-sm-6 mb-4">
                     <div className="card">
                         <div className="card-body">
-                            <Element data={obj} keys={Object.keys(obj)} />
+                            <HandleObject data={obj} />
                         </div>
                         <div className="card-footer text-center">
                             <Link to={`/edit/${obj.id}`}>
@@ -25,7 +21,6 @@ export default class Grid extends React.Component {
                             <Link to={`/delete/${obj.id}`}>
                                 <button type="button" className="btn btn-danger mx-2">Delete</button>
                             </Link>
-                            
                         </div>
                     </div>
                     <Route path="/edit/:id" component={EditPage} />
@@ -37,11 +32,9 @@ export default class Grid extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="container-fluid">
-                    <div className="row">
-                        {this.geContent()}
-                    </div>
+            <div className="container-fluid">
+                <div className="row">
+                    {this.handleGrid()}
                 </div>
             </div>
         );
