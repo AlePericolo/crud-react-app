@@ -1,10 +1,11 @@
 import React from 'react';
 import Service from '../api/Service';
-
 import Title from '../common/Title'
 import HandleObject from '../common/HandleObject'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 class DeletePage extends React.Component {
 
@@ -78,9 +79,13 @@ class DeletePage extends React.Component {
                         </div>
                         <div className="card-footer text-center">
                             <Link to="/">
-                                <button type="button" className="btn btn-info mx-2" > Go Back </button>
+                                <button type="button" className="btn btn-info mx-2" title="Go back">
+                                    <FontAwesomeIcon icon="arrow-left" size="md" />
+                                </button>
                             </Link>
-                            <button type="button" onClick={this.delete} className="btn btn-danger mx-2" > Delete </button>
+                            <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
+                                <FontAwesomeIcon icon="trash-alt" size="md" />
+                            </button>
                         </div>
                     </div>
                 </div>

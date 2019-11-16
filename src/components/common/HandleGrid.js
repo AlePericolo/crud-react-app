@@ -3,6 +3,7 @@ import { Route, Link } from 'react-router-dom'
 import HandleObject from './HandleObject'
 import EditPage from '../container/EditPage'
 import DeletePage from '../container/DeletePage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class HandleGrid extends React.Component {
 
@@ -16,10 +17,14 @@ export default class HandleGrid extends React.Component {
                         </div>
                         <div className="card-footer text-center">
                             <Link to={`/edit/${obj.id}`}>
-                                <button type="button" className="btn btn-warning mx-2">Edit</button>
+                                <button type="button" className="btn btn-outline-warning btn-sm mx-2" title="Go to Edit">
+                                    <FontAwesomeIcon icon="pencil-alt" size="xs" />
+                                </button>
                             </Link>
                             <Link to={`/delete/${obj.id}`}>
-                                <button type="button" className="btn btn-danger mx-2">Delete</button>
+                                <button type="button" className="btn btn-outline-danger btn-sm mx-2" title="Go to Delete">
+                                    <FontAwesomeIcon icon="trash-alt" size="xs" />
+                                </button>
                             </Link>
                         </div>
                     </div>

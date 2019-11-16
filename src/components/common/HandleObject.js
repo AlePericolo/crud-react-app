@@ -1,5 +1,5 @@
 import React from 'react'
-import { isWebUri } from 'valid-url';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class HandleObject extends React.Component {
 
@@ -33,8 +33,8 @@ export default class HandleObject extends React.Component {
                     </div>
                     */}
 
-                    <button type="button" className="btn btn-primary btn-sm" data-toggle="modal" data-target={`#modal${this.props.data.id}`}>
-                        Show
+                    <button type="button" className="btn btn-outline-dark btn-sm" title="Show" data-toggle="modal" data-target={`#modal${this.props.data.id}`}>
+                        <FontAwesomeIcon icon="eye" size="xs" />
                     </button>
 
                     <div className="modal fade" id={`modal${this.props.data.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -59,8 +59,12 @@ export default class HandleObject extends React.Component {
             )
         } else {
 
-            if ((/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/).test(element)) {
-                return <a className="btn btn-primary btn-sm" href={element} target="_blank" role="button">Link</a>
+            if ((/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/).test(element)) {
+                return (
+                    <a className="btn btn-outline-dark btn-sm" href={element} target="_blank" rel="noopener noreferrer" title="Link" role="button">
+                        <FontAwesomeIcon icon="link" size="xs" />
+                    </a>
+                )
             }
             return element
         }
