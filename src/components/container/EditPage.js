@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
 import Title from '../common/Title'
+import HandleFormObject from '../common/HandleFormObject'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -34,6 +35,8 @@ class EditPage extends Component {
     }
 
     edit = () => {
+
+        console.log(this.state.data);
 
         /*
         Service.deleteApi(`/${this.state.id}`)
@@ -72,16 +75,16 @@ class EditPage extends Component {
                     <Title title={'Edit'} />
                     <div className="card">
                         <div className="card-body">
-                            {JSON.stringify(this.state.data)}
+                            <HandleFormObject data={this.state.data} />
                         </div>
                         <div className="card-footer text-center">
                             <Link to="/">
                                 <button type="button" className="btn btn-info mx-2" title="Go back">
-                                    <FontAwesomeIcon icon="arrow-left" size="md" />
+                                    <FontAwesomeIcon icon="arrow-left" size="lg" />
                                 </button>
                             </Link>
-                            <button type="button" onClick={this.delete} className="btn btn-success mx-2" title="Save">
-                                <FontAwesomeIcon icon="save" size="md" />
+                            <button type="submit" className="btn btn-success mx-2" title="Save">
+                                <FontAwesomeIcon icon="save" size="lg" />
                             </button>
                         </div>
                     </div>
