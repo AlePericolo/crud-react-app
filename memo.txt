@@ -19,3 +19,4 @@ modules:
     npm install react-router-dom --save
     npm install bootstrap --save
     npm install sweetalert2 --save
+    npm install valid-url --save
