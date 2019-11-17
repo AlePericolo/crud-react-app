@@ -25,7 +25,7 @@ class NewPage extends React.Component {
         manufacturer: '',
         model: '',
         price: '',
-        quality: [],
+        //quality: [],
         wiki: '',
       }
     })
