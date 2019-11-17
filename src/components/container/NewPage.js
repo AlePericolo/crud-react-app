@@ -49,6 +49,8 @@ class NewPage extends Component {
         this.setState({ loadComplete: true })
     }
 
+    //gestire pulsante cambia struttura
+
     save = () => {
 
         console.log(this.state.data);
