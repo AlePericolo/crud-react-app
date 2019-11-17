@@ -8,6 +8,8 @@ import EditPage from './components/container/EditPage.js';
 import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';
 
+import NewPage1 from './components/container/NewPage1';
+
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
@@ -45,7 +47,8 @@ const routing = (
             </nav>
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route exact path="/new" component={NewPage} />
+                {/*<Route exact path="/new" component={NewPage} />*/}
+                <Route exact path="/new" component={NewPage1} />
                 <Route exact path="/edit/:id" component={EditPage} />
                 <Route exact path="/delete/:id" component={DeletePage} />
                 <Route component={Notfound} />
