@@ -21,6 +21,7 @@ class NewPage1 extends Component {
     componentDidMount() {
 
         this.setState({
+            /*DB.JSON*/
             data:
             {
                 manufacturer: '',
@@ -29,6 +30,21 @@ class NewPage1 extends Component {
                 quality: [{ name: '', rating: '' }],
                 wiki: '',
             }
+            /*DB_MISMATCH.JSON
+            data:
+            {
+                manufacturer: '',
+                model: '',
+                price: '',
+                quality: {
+                    "overall": ,
+                    "mechanical": ,
+                    "powertrain": ,
+                    "body": ,
+                    "interior": ,
+                    "accessories": 
+                }
+            }*/
         });
         this.setState({ loadComplete: true })
     }
