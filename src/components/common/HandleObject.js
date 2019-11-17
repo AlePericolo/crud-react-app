@@ -72,10 +72,10 @@ export default class HandleObject extends React.Component {
                 return (
                     <div key={index} className="container-fluid">
                         <div className="row">
-                            <div className="col text-right pr-3">
+                            <div className="col-md-6 col-sm-12 text-md-right pr-md-3">
                                 <strong>{key.toUpperCase()}:</strong>
                             </div>
-                            <div className="col">
+                            <div className="col-md-6 col-sm-12">
                                 {this.handleElement(this.props.data[key], key)}
                             </div>
                         </div>

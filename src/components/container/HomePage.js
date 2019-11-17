@@ -14,7 +14,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        Service.getApi('')
+        Service.getAllApi()
             .then(response => {
                 //console.log(response);
                 if (response.status === 200) {

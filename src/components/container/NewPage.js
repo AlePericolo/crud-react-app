@@ -1,24 +1,26 @@
 import React from 'react';
-import Service from '../api/Service';
+// Service from '../api/Service';
 //import Title from '../common/Title'
 import { Link } from 'react-router-dom'
-import Swal from 'sweetalert2'
+//import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class NewPage extends React.Component {
 
+  /*
   constructor(props) {
     super(props);
 
-    /*
+    
     this.state = {
         id: this.props.match.params.id,
         data: '',
         loadComplete: false
     };
     this.addService = new Service();
-    */
+    
   }
+  */
 
   save = () => {
     console.log('save');

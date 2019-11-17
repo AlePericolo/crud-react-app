@@ -1,23 +1,27 @@
-// import React from 'react';
 import axios from 'axios'
+
 const baseUrl = "http://localhost:3001/cars"
 
 class Service {
 
-    static getApi(url) {
-        return axios.get(baseUrl + url);
+    static getAllApi() {
+        return axios.get(baseUrl);
     }
 
-    static postApi(url, data) {
-        return axios.post(baseUrl + url, data);
+    static getApi(url) {
+        return axios.get(baseUrl + url);
     }
 
     static deleteApi(url) {
         return axios.delete(baseUrl + url);
     }
 
-    static patchApi(url, obj) {
-        return axios.patch(baseUrl + url, obj);
+    static postApi(url, data) {
+        return axios.post(baseUrl + url, data);
+    }
+
+    static patchApi(url, data) {
+        return axios.patch(baseUrl + url, data);
     }
 
 }

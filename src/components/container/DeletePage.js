@@ -83,11 +83,11 @@ class DeletePage extends React.Component {
                                 <div className="card-footer bg-dark text-center">
                                     <Link to="/">
                                         <button type="button" className="btn btn-info mx-2" title="Go back">
-                                            <FontAwesomeIcon icon="arrow-left" size="md" />
+                                            <FontAwesomeIcon icon="arrow-left" />
                                         </button>
                                     </Link>
                                     <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
-                                        <FontAwesomeIcon icon="trash-alt" size="md" />
+                                        <FontAwesomeIcon icon="trash-alt" />
                                     </button>
                                 </div>
                             </div>
