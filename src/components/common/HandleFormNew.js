@@ -23,7 +23,6 @@ export default class HandleFormNew extends React.Component {
     handleChange = (e) => {
 
         const newState = { ...this.state }
-        console.log(this.props);
         console.log(newState);
 
         //array elements
@@ -46,9 +45,15 @@ export default class HandleFormNew extends React.Component {
 
     addArrayQuality = (e) => {
         e.preventDefault();
-        this.setState((prevState) => ({
-            quality: [...this.state.quality, { name: "", rating: "" }],
-        }));
+        if (this.state.quality instanceof Array) {
+            this.setState((prevState) => ({
+                quality: [...this.state.quality, { name: "", rating: "" }],
+            }));
+        } else {
+            this.setState((prevState) => ({
+                quality: [{ name: "", rating: "" }],
+            }));
+        }
     }
 
     addObjectQuality = (e) => {

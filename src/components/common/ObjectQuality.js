@@ -2,9 +2,9 @@ import React from "react"
 
 const ObjectQuality = (props) => {
 
-    console.log(props);
-    if (props.quality instanceof Object) {
-        console.log("OBJECT");
+    const { quality } = props;
+
+    if (!Array.isArray(quality)) {
 
         return (
             <div className="border border-light p-3">

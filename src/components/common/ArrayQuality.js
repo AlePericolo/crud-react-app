@@ -2,8 +2,9 @@ import React from "react"
 
 const ArrayQuality = (props) => {
 
-    console.log(props);
-    if (props.quality instanceof Array) {
+    const { quality } = props;
+
+    if (Array.isArray(quality)) {
 
         return (
             props.quality.map((obj, index) => {
