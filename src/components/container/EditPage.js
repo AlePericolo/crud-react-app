@@ -74,23 +74,25 @@ class EditPage extends Component {
                         <div className="col-10">
                             {/*<Title title={'Edit'} />*/}
                             <div className="card my-3">
-                                <div className="card-header bg-dark text-warning text-center">
-                                    <h2> Edit this element </h2>
+                                <div className="card-header bg-dark text-warning">
+                                    <div className="d-flex justify-content-around">
+                                        <Link to="/">
+                                            <button type="button" className="btn btn-info" title="Go back">
+                                                <FontAwesomeIcon icon="arrow-left" size="lg" />
+                                            </button>
+                                        </Link>
+                                        <h2 align="center"> Edit this element </h2>
+                                    </div>
                                 </div>
                                 <div className="card-body">
                                     <div className="container">
                                         <HandleFormEdit data={this.state.data} />
+                                        <div className="form-group col-12 text-center">
+                                            <button onClick={this.edit} className="btn btn-warning mx-2" title="Edit">
+                                                Edit <FontAwesomeIcon icon="save" size="lg" />
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="card-footer bg-dark text-center">
-                                    <Link to="/">
-                                        <button type="button" className="btn btn-info mx-2" title="Go back">
-                                            <FontAwesomeIcon icon="arrow-left" size="lg" />
-                                        </button>
-                                    </Link>
-                                    <button onClick={this.edit} className="btn btn-warning mx-2" title="Edit">
-                                        <FontAwesomeIcon icon="save" size="lg" />
-                                    </button>
                                 </div>
                             </div>
                         </div>

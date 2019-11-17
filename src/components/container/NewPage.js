@@ -31,12 +31,6 @@ class NewPage extends React.Component {
     })
   }
 
-
-  save = () => {
-    console.log('save');
-    console.log(this.state.data);
-  }
-
   render() {
 
     if (this.state.loadComplete) {
@@ -45,10 +39,16 @@ class NewPage extends React.Component {
           <div className="row justify-content-center">
             <div className="col-10">
               {/*<Title title={'New'} />*/}
-              {/*<form>*/}
               <div className="card my-3">
-                <div className="card-header bg-dark text-success text-center">
-                  <h2> New element </h2>
+                <div className="card-header bg-dark text-success">
+                  <div className="d-flex justify-content-around">
+                    <Link to="/">
+                      <button type="button" className="btn btn-info mx-2" title="Go back">
+                        <FontAwesomeIcon icon="arrow-left" />
+                      </button>
+                    </Link>
+                    <h2> Add new element </h2>
+                  </div>
                 </div>
                 <div className="card-body">
                   <div className="container">
@@ -56,14 +56,12 @@ class NewPage extends React.Component {
                   </div>
                 </div>
               </div>
-              {/*</form>*/}
             </div>
           </div>
         </div>
       )
-    } else {
-      return ''
     }
+    return ''
   }
 
 }

@@ -123,9 +123,8 @@ export default class HandleFormNew extends React.Component {
 
 
             )
-        } else {
-            return ''
         }
+        return ''
     }
 
 }

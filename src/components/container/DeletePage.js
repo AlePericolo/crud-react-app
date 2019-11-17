@@ -72,32 +72,33 @@ class DeletePage extends React.Component {
                         <div className="col-10">
                             {/*<Title title={'Delete'} />*/}
                             <div className="card my-3">
-                                <div className="card-header bg-dark text-danger text-center">
-                                    <h2> Delete this element ? </h2>
+                                <div className="card-header bg-dark text-danger">
+                                    <div className="d-flex justify-content-around">
+                                        <Link to="/">
+                                            <button type="button" className="btn btn-info mx-2" title="Go back">
+                                                <FontAwesomeIcon icon="arrow-left" />
+                                            </button>
+                                        </Link>
+                                        <h2> Delete this element </h2>
+                                    </div>
                                 </div>
                                 <div className="card-body">
                                     <div className="container">
                                         <HandleObject data={this.state.data} />
+                                        <div className="form-group col-12 text-center mt-5">
+                                            <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
+                                                Delete <FontAwesomeIcon icon="trash-alt" />
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="card-footer bg-dark text-center">
-                                    <Link to="/">
-                                        <button type="button" className="btn btn-info mx-2" title="Go back">
-                                            <FontAwesomeIcon icon="arrow-left" />
-                                        </button>
-                                    </Link>
-                                    <button type="button" onClick={this.delete} className="btn btn-danger mx-2" title="Delete">
-                                        <FontAwesomeIcon icon="trash-alt" />
-                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             )
-        } else {
-            return '';
         }
+        return '';
     }
 }
 
