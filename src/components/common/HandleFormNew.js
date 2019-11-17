@@ -32,7 +32,7 @@ export default class HandleFormNew extends React.Component {
 
     addArrayQuality = (e) => {
         this.setState((prevState) => ({
-            quality: [...prevState.quality, { name: "", rating: "" }],
+            quality: [...this.state.quality, { name: "", rating: "" }],
         }));
     }
 
@@ -71,7 +71,7 @@ export default class HandleFormNew extends React.Component {
                 <div className="form-group row">
                     <div className="col text-center">
                         <button className="btn btn-sm btn-light mx-2 my-3" onClick={this.addArrayQuality}> Add quality</button>
-                        <ArrayQuality quality={quality} />
+                        <ArrayQuality quality={this.state.quality} />
                     </div>
                 </div>
                 <div className="form-group row">
@@ -85,7 +85,7 @@ export default class HandleFormNew extends React.Component {
 
                 <div className="form-group col-12 text-center">
                     <button type="submit" value="submit" className="btn btn-success mx-2" title="Save">
-                        <FontAwesomeIcon icon="save" size="lg" />
+                        Save <FontAwesomeIcon icon="save" size="lg" />
                     </button>
                 </div>
             </form>
