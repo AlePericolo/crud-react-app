@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class HandleObject extends React.Component {
 
-
     handleSubElement = (object) => {
 
         if (object instanceof Array) {
@@ -64,15 +63,11 @@ export default class HandleObject extends React.Component {
             }
             return element
         }
-
     }
 
     render() {
 
-        const obj = this.props.data;
-        const keys = Object.keys(obj);
-
-        return keys.map((key, index) => {
+        return Object.keys(this.props.data).map((key, index) => {
             if (key !== 'id') {
                 return (
                     <div key={index} className="container-fluid">
@@ -81,7 +76,7 @@ export default class HandleObject extends React.Component {
                                 <strong>{key.toUpperCase()}:</strong>
                             </div>
                             <div className="col">
-                                {this.handleElement(obj[key], key)}
+                                {this.handleElement(this.props.data[key], key)}
                             </div>
                         </div>
                     </div>

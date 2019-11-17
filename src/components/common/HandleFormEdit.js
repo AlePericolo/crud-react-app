@@ -49,14 +49,17 @@ export default class HandleFormEdit extends React.Component {
     render() {
 
         return Object.keys(this.state.data).map((key, index) => {
-            return (
-                <div key={index} className="form-group row">
-                    <label htmlFor={key} className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right"><strong>{key.toUpperCase()}:</strong></label>
-                    <div className="col-md-8 col-sm-12">
-                        {this.handleElement(this.state.data[key], key)}
+            if (key !== 'id') {
+                return (
+                    <div key={index} className="form-group row">
+                        <label htmlFor={key} className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right"><strong>{key.toUpperCase()}:</strong></label>
+                        <div className="col-md-8 col-sm-12">
+                            {this.handleElement(this.state.data[key], key)}
+                        </div>
                     </div>
-                </div>
-            )
+                )
+            }
+            return ''
         })
     }
 }
