@@ -10,10 +10,9 @@ import Notfound from './components/common/NotFound';
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(fab, faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faGlobe, faLink, faArrowLeft, faTimes)
+library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes)
 
 const routing = (
     <Router>

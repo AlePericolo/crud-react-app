@@ -32,8 +32,8 @@ export default class HandleObject extends React.Component {
                     </div>
                     */}
 
-                    <button type="button" className="btn btn btn-light btn-sm my-1" title="Show" data-toggle="modal" data-target={`#modal${this.props.data.id}`}>
-                        <FontAwesomeIcon icon="eye" size="xs" />
+                    <button type="button" className="btn btn btn-light btn-sm my-1" title="Info" data-toggle="modal" data-target={`#modal${this.props.data.id}`}>
+                        <FontAwesomeIcon icon="info-circle" />
                     </button>
                     <div className="modal fade" id={`modal${this.props.data.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                         <div className="modal-dialog" role="document">
@@ -57,7 +57,7 @@ export default class HandleObject extends React.Component {
             if ((/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/).test(element)) {
                 return (
                     <a className="btn btn btn-light btn-sm" href={element} target="_blank" rel="noopener noreferrer" title="Link" role="button">
-                        <FontAwesomeIcon icon="link" size="xs" />
+                        <FontAwesomeIcon icon="external-link-alt" />
                     </a>
                 )
             }

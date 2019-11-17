@@ -23,8 +23,12 @@ class HomePage extends Component {
                 this.setState({ loadComplete: true })
             })
             .catch(function (error) {
-                Swal.fire(error.toString())
                 console.log(error);
+                Swal.fire(error.toString())
+                    .then(() => {
+                        window.location.reload();
+                        console.log('Reload')
+                    });
             })
     }
 
