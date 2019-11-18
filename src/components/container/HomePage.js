@@ -36,15 +36,19 @@ class HomePage extends Component {
         if (this.state.data instanceof Array && this.state.data.length > 0) {
             return <HandleGrid data={this.state.data} />
         } else {
-            return (
-                <div>
-                    <div className="alert alert-danger" role="alert">
-                        <h2>No more cars</h2>
-                        <hr></hr>
-                        <p className="mb-0">You nedd to add new..</p>
-                    </div>
-                </div>
-            )
+            Swal.fire({
+                title: 'No more cars',
+                text: "Nedd to add new..",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Add'
+            }).then((result) => {
+                if (result.value) {
+                    this.props.history.push('/new');
+                }
+            })
         }
     }
 
