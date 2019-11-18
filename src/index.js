@@ -4,6 +4,8 @@ import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomePage from './components/container/HomePage';
 import NewPage from './components/container/NewPage';
+import Test from './components/container/Test';
+import NewPage2 from './components/container/NewPage2';
 import EditPage from './components/container/EditPage.js';
 import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';
@@ -11,9 +13,9 @@ import Notfound from './components/common/NotFound';
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes)
+library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus)
 
 const routing = (
     <Router>
@@ -41,12 +43,22 @@ const routing = (
                                 </button>
                             </Link>
                         </form>
+                        */}
+                        <form className="form-inline">
+                            <Link to="/new2">
+                                <button className="btn btn-outline-success btn-sm" type="button" title="Go to New">
+                                    Add new 2<FontAwesomeIcon icon="car-alt" />
+                                </button>
+                            </Link>
+                        </form>
                     </ul>
                 </div>
             </nav>
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                <Route exact path="/new" component={NewPage} />
+                {/*<Route exact path="/new" component={NewPage} />*/}
+                <Route exact path="/new" component={Test} />
+                <Route exact path="/new2" component={NewPage2} />
                 <Route exact path="/edit/:id" component={EditPage} />
                 <Route exact path="/delete/:id" component={DeletePage} />
                 <Route component={Notfound} />
