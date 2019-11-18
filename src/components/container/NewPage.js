@@ -3,9 +3,9 @@ import Service from '../api/Service';
 //import Title from '../common/Title'
 import { Link } from 'react-router-dom'
 import ArrayQuality from "../common/ArrayQuality"
+import ObjectQuality from "../common/ObjectQaulity"
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ObjectQuality from '../common/ObjectQaulity';
 
 class NewPage extends Component {
 
@@ -36,12 +36,15 @@ class NewPage extends Component {
     addQualityArray = (e) => {
         e.preventDefault();
 
-        if (this.state.data.quality) {
-            console.log('add');
+        console.log(this.state.data.quality);
+        console.log(Array.isArray(this.state.data.quality));
+
+        if (Array.isArray(this.state.data.quality)) {
+            console.log('add array');
             this.setState(prevState => ({
                 ...prevState,
                 data: {
-                    ...prevState.quality,
+                    ...prevState.data,
                     quality: [...prevState.data.quality, { name: "", rating: 0 }]
                 }
             }),
@@ -49,7 +52,7 @@ class NewPage extends Component {
                 this.forceUpdate()
             )
         } else {
-            console.log('new');
+            console.log('new array');
             this.setState(prevState => ({
                 data: {
                     ...prevState.data,
@@ -64,9 +67,17 @@ class NewPage extends Component {
     //quality as object
     addQualityObject = (e) => {
         e.preventDefault();
+        console.log('object')
 
-        console.log('object');
-        this.disableButton('a')
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                quality: { 'overall': 0, 'mechanical': 0, 'powertrain': 0, 'body': 0, 'interior': 0, 'accessories': 0 }
+            }
+        }),
+            this.disableButton('a'),
+        )
+
     }
 
     disableButton(p) {
@@ -139,8 +150,9 @@ class NewPage extends Component {
         //console.log(this.state.data) 
         //console.log(this.props);
         const { data } = this.state;
-        //console.log(data);
+        console.log(data);
 
+        /*
         Service.postApi(data)
             .then(response => {
                 console.log(response);
@@ -166,6 +178,7 @@ class NewPage extends Component {
             }).catch((error) => {
                 console.log("error-----------", error)
             });
+            */
     }
 
     render() {

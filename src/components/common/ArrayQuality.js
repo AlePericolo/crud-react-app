@@ -2,8 +2,10 @@ import React from "react"
 
 const ArrayQuality = (props) => {
 
-    //console.log(props.quality)
-    if (props.quality) {
+    //console.log(typeof props.quality)
+    //console.log(Array.isArray(props.quality))
+
+    if (props.quality && Array.isArray(props.quality)) {
         return (
             props.quality.map((obj, index) => {
                 return (
