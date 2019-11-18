@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import ArrayQuality from "../common/ArrayQuality"
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ObjectQuality from '../common/ObjectQaulity';
 
 class NewPage extends Component {
 
@@ -17,11 +18,11 @@ class NewPage extends Component {
                 manufacturer: '',
                 model: '',
                 price: 0,
-                quality: [
-                    { name: '', rating: 0 }
-                ],
                 wiki: ''
             },
+            qualityArrayButton: false,
+            qualityObjButton: false,
+
             manufacturerValid: false,
             modelValid: false,
             priceValid: false,
@@ -31,16 +32,51 @@ class NewPage extends Component {
         this.addService = new Service();
     }
 
-    addQuality = (e) => {
+    //quality as array
+    addQualityArray = (e) => {
         e.preventDefault();
 
-        this.setState(prevState => ({
-            ...prevState,
-            data: {
-                ...prevState.quality,
-                quality: [...prevState.data.quality, { name: "", rating: 0 }]
-            }
-        }), () => { console.log(this.state.data) })
+        if (this.state.data.quality) {
+            console.log('add');
+            this.setState(prevState => ({
+                ...prevState,
+                data: {
+                    ...prevState.quality,
+                    quality: [...prevState.data.quality, { name: "", rating: 0 }]
+                }
+            }),
+                () => console.log(this.state),
+                this.forceUpdate()
+            )
+        } else {
+            console.log('new');
+            this.setState(prevState => ({
+                data: {
+                    ...prevState.data,
+                    quality: [{ name: "", rating: 0 }]
+                }
+            }),
+                this.disableButton('o'),
+            )
+        }
+    }
+
+    //quality as object
+    addQualityObject = (e) => {
+        e.preventDefault();
+
+        console.log('object');
+        this.disableButton('a')
+    }
+
+    disableButton(p) {
+        console.log(p);
+        if (p === 'o') {
+            this.setState({ qualityObjButton: true }, () => console.log(this.state))
+        }
+        if (p === 'a') {
+            this.setState({ qualityArrayButton: true }, () => console.log(this.state))
+        }
     }
 
     handleChange = (e) => {
@@ -188,12 +224,23 @@ class NewPage extends Component {
                                                 <small className="text-danger"> {this.state.priceValid ? '' : 'Sorry, it can\'t be free...'} </small>
                                             </div>
                                         </div>
-                                        <div className="col text-center">
-                                            <button onClick={this.addQuality} className="btn btn-sm btn-light my-2">
-                                                Add new quality <FontAwesomeIcon icon="plus" />
-                                            </button>
-                                            <ArrayQuality quality={quality} />
+                                        <div className="container">
+                                            <div className="row">
+                                                <div className="col-sm text-center">
+                                                    <button onClick={this.addQualityArray} disabled={this.state.qualityArrayButton} className="btn btn-sm btn-light my-2">
+                                                        Add new quality as array <FontAwesomeIcon icon="plus" />
+                                                    </button>
+                                                    <ArrayQuality quality={quality} />
+                                                </div>
+                                                <div className="col-sm text-center">
+                                                    <button onClick={this.addQualityObject} disabled={this.state.qualityObjButton} className="btn btn-sm btn-light my-2">
+                                                        Add new quality as object <FontAwesomeIcon icon="plus" />
+                                                    </button>
+                                                    <ObjectQuality quality={quality} />
+                                                </div>
+                                            </div>
                                         </div>
+
                                         <div className="form-group row">
                                             <label htmlFor="wiki" className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right">
                                                 <strong>WIKI</strong>

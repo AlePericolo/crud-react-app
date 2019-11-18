@@ -1,8 +1,11 @@
 import React from "react"
 
-const ArrayQuality = (props) => {
+const ObjectQuality = (props) => {
 
-    //console.log(props.quality)
+    console.log(props.quality)
+
+    return <div>object</div>
+
     if (props.quality) {
         return (
             props.quality.map((obj, index) => {
@@ -31,4 +34,4 @@ const ArrayQuality = (props) => {
     }
     return ''
 }
-export default ArrayQuality
+export default ObjectQuality
