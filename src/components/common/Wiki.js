@@ -2,7 +2,7 @@ import React from "react"
 
 const Wiki = (props) => {
 
-    console.log(props.wiki)
+    //console.log(props.wiki)
     let { wiki } = props;
 
     if (typeof wiki === 'string' || wiki instanceof String) {

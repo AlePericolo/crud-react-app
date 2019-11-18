@@ -202,7 +202,7 @@ class NewPage extends Component {
 
     render() {
 
-        console.log(this.state.data);
+        //console.log(this.state.data);
         let { manufacturer, model, price, quality, wiki } = this.state.data
 
         return (
