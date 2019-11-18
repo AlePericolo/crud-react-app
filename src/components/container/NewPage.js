@@ -57,20 +57,21 @@ class NewPage extends Component {
         } else {
             const name = e.target.name;
             const value = e.target.value; 
-            
             this.setState(
               { data: { ...this.state.data,[name]: value }},
               () => { this.validateField(name, value) },
               () => { console.log(this.state.data)}
             )
         }
-      }
+    }
 
     validateField(field, value) {
         let handleError = this.state.formErrors;
         let manufacturerValid = this.state.manufacturerValid;
         let modelValid = this.state.modelValid;
         let priceValid = this.state.priceValid;
+
+        console.log(handleError);
     
         switch(field) {
           case 'manufacturer':
@@ -94,8 +95,7 @@ class NewPage extends Component {
               manufacturerValid: manufacturerValid,
               modelValid: modelValid,
               priceValid: priceValid,
-            }, this.validateForm);
-        
+            }, this.validateForm);  
     }
     
     validateForm() {
@@ -109,7 +109,7 @@ class NewPage extends Component {
         
     handleSubmit = (e) => { 
         e.preventDefault(); 
-        console.log(this.state.data) 
+        //console.log(this.state.data) 
         console.log(this.props);
         const {data} = this.state;
         console.log(data);
@@ -174,8 +174,7 @@ class NewPage extends Component {
                                                 <div className="col-md-8 col-sm-12">
                                                     <input type="text" name="manufacturer" id="manufacturer" 
                                                         className={`form-control form-control-sm ${this.errorClass(this.state.manufacturerValid)}`}
-                                                        defaultValue={manufacturer} 
-                                                        />
+                                                        defaultValue={manufacturer} />
                                                     <small className="text-danger"> {this.state.formErrors.manufacturerMex} </small>
                                                 </div>
                                             </div>
