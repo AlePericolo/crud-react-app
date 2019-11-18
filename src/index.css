@@ -29,3 +29,8 @@ nav a
   background-color: rgba(0,0,0,0.8) !important;
   color: #fff !important
 }
+
+.required-field
+{
+  border-left: 5px solid #dc3545!important;
+}

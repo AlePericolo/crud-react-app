@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
 //import Title from '../common/Title'
-import HandleFormNew from '../common/HandleFormNew'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

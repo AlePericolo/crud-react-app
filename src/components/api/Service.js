@@ -16,8 +16,8 @@ class Service {
         return axios.delete(baseUrl + url);
     }
 
-    static postApi(url, data) {
-        return axios.post(baseUrl + url, data);
+    static postApi(data) {
+        return axios.post(baseUrl + '/', data);
     }
 
     static patchApi(url, data) {

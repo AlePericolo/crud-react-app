@@ -4,12 +4,10 @@ import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomePage from './components/container/HomePage';
 import NewPage from './components/container/NewPage';
-import Test from './components/container/Test';
 import NewPage2 from './components/container/NewPage2';
 import EditPage from './components/container/EditPage.js';
 import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';
-
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -46,8 +44,8 @@ const routing = (
                         */}
                         <form className="form-inline">
                             <Link to="/new2">
-                                <button className="btn btn-outline-success btn-sm" type="button" title="Go to New">
-                                    Add new 2<FontAwesomeIcon icon="car-alt" />
+                                <button className="btn btn-outline-success btn-sm" type="button" title="Go to New 2">
+                                    Add new 2 <FontAwesomeIcon icon="car-alt" />
                                 </button>
                             </Link>
                         </form>
@@ -56,8 +54,7 @@ const routing = (
             </nav>
             <Switch>
                 <Route exact path="/" component={HomePage} />
-                {/*<Route exact path="/new" component={NewPage} />*/}
-                <Route exact path="/new" component={Test} />
+                <Route exact path="/new" component={NewPage} />
                 <Route exact path="/new2" component={NewPage2} />
                 <Route exact path="/edit/:id" component={EditPage} />
                 <Route exact path="/delete/:id" component={DeletePage} />
