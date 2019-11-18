@@ -68,7 +68,6 @@ class NewPage2 extends Component {
 
     validateField(field, value) {
 
-        let handleError = this.state.formErrors;
         let manufacturerValid = this.state.manufacturerValid;
         let modelValid = this.state.modelValid;
         let priceValid = this.state.priceValid;
@@ -113,7 +112,6 @@ class NewPage2 extends Component {
 
         this.setState(
             {
-                formErrors: handleError,
                 manufacturerValid: manufacturerValid,
                 modelValid: modelValid,
                 priceValid: priceValid,

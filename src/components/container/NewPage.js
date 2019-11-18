@@ -22,11 +22,6 @@ class NewPage extends Component {
                 ],
                 wiki: ''
             },
-            formErrors: {
-                manufacturerMex: 'Insert a manufacturer',
-                modelMex: 'Insert a model',
-                priceMex: 'Sorry, it can\'t be free...'
-            },
             manufacturerValid: false,
             modelValid: false,
             priceValid: false,
@@ -66,25 +61,21 @@ class NewPage extends Component {
     }
 
     validateField(field, value) {
-        let handleError = this.state.formErrors;
         let manufacturerValid = this.state.manufacturerValid;
         let modelValid = this.state.modelValid;
         let priceValid = this.state.priceValid;
 
-        console.log(handleError);
+        //console.log(handleError);
 
         switch (field) {
             case 'manufacturer':
                 manufacturerValid = value.length > 0
-                handleError.manufacturerMex = manufacturerValid ? '' : 'Insert a manufacturer';
                 break;
             case 'model':
                 modelValid = value.length > 0
-                handleError.modelMex = modelValid ? '' : 'Insert a model';
                 break;
             case 'price':
                 priceValid = value > 0
-                handleError.priceMex = priceValid ? '' : 'Sorry, it can\'t be free...';
                 break;
             default:
                 break;
@@ -92,7 +83,6 @@ class NewPage extends Component {
 
         this.setState(
             {
-                formErrors: handleError,
                 manufacturerValid: manufacturerValid,
                 modelValid: modelValid,
                 priceValid: priceValid,
@@ -173,7 +163,7 @@ class NewPage extends Component {
                                                 <input type="text" name="manufacturer" id="manufacturer"
                                                     className={`form-control form-control-sm ${this.errorClass(this.state.manufacturerValid)}`}
                                                     defaultValue={manufacturer} />
-                                                <small className="text-danger"> {this.state.formErrors.manufacturerMex} </small>
+                                                <small className="text-danger"> {this.state.manufacturerValid ? '' : 'Insert a manufacturer'} </small>
                                             </div>
                                         </div>
                                         <div className="form-group row">
@@ -184,7 +174,7 @@ class NewPage extends Component {
                                                 <input type="text" name="model" id="model"
                                                     className={`form-control form-control-sm ${this.errorClass(this.state.modelValid)}`}
                                                     defaultValue={model} />
-                                                <small className="text-danger"> {this.state.formErrors.modelMex} </small>
+                                                <small className="text-danger"> {this.state.modelValid ? '' : 'Insert a model'} </small>
                                             </div>
                                         </div>
                                         <div className="form-group row">
@@ -195,7 +185,7 @@ class NewPage extends Component {
                                                 <input type="number" min="0" name="price" id="price"
                                                     className={`form-control form-control-sm ${this.errorClass(this.state.priceValid)}`}
                                                     defaultValue={price} />
-                                                <small className="text-danger"> {this.state.formErrors.priceMex} </small>
+                                                <small className="text-danger"> {this.state.priceValid ? '' : 'Sorry, it can\'t be free...'} </small>
                                             </div>
                                         </div>
                                         <div className="col text-center">

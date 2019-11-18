@@ -4,7 +4,18 @@ export default class HandleFormEdit extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { data: this.props.data };
+        this.state = {
+            data: this.props.data,
+            formErrors: {
+                manufacturerMex: '',
+                modelMex: '',
+                priceMex: ''
+            },
+            manufacturerValid: false,
+            modelValid: false,
+            priceValid: false,
+            formValid: false
+        };
     }
 
     handleSubElement = (object) => {
@@ -39,11 +50,49 @@ export default class HandleFormEdit extends React.Component {
         }
     }
 
+    validateField(field, value) {
+        let handleError = this.state.formErrors;
+        let manufacturerValid = this.state.manufacturerValid;
+        let modelValid = this.state.modelValid;
+        let priceValid = this.state.priceValid;
+
+        console.log(handleError);
+
+        switch (field) {
+            case 'manufacturer':
+                manufacturerValid = value.length > 0
+                break;
+            case 'model':
+                modelValid = value.length > 0
+                break;
+            case 'price':
+                priceValid = value > 0
+                break;
+            default:
+                break;
+        }
+
+        this.setState(
+            {
+                formErrors: handleError,
+                manufacturerValid: manufacturerValid,
+                modelValid: modelValid,
+                priceValid: priceValid,
+            }, this.validateForm);
+    }
+
     handleChange = (e) => {
 
+        const name = e.target.name;
+        const value = e.target.value;
+        console.log(name)
+        console.log(value)
         const newState = { ...this.state }
-        newState.data[e.target.name] = e.target.value;
-        this.setState(newState);
+        newState.data[name] = value;
+        this.setState(newState,
+            () => {
+                this.validateField(name, value)
+            });
     }
 
     render() {
