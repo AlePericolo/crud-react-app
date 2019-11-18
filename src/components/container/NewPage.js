@@ -92,13 +92,32 @@ class NewPage extends Component {
 
     handleChange = (e) => {
 
+        console.log(e);
+
+        const name = e.target.name;
+        const value = e.target.value;
+
         if (['name', 'rating'].includes(e.target.name)) {
             let quality = [...this.state.data.quality]
             quality[e.target.id][e.target.name] = e.target.value
             this.setState({ quality }, () => {/*console.log(this.state.data.quality)*/ })
+        }
+        else if (Object.keys(this.state.data.quality).includes(name)) {
+            const { quality } = this.state.data
+            quality[name] = value
+            this.setState(
+                {
+                    data:
+                        { ...this.state.data },
+                    quality: { quality }
+                },
+                () => { this.validateField(name, value) },
+                () => console.log(this.state.quality)
+            )
         } else {
-            const name = e.target.name;
-            const value = e.target.value;
+
+
+
             this.setState(
                 { data: { ...this.state.data, [name]: value } },
                 () => { this.validateField(name, value) },
