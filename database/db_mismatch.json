@@ -1,74 +1,74 @@
 {
-    "cars": [
-        {
-            "id": 1,
-            "manufacturer": "Porsche",
-            "model": "911",
-            "price": 135000,
-            "quality": {
-                "overall": 1,
-                "mechanical": 4,
-                "powertrain": 2,
-                "body": 4,
-                "interior": 3,
-                "accessories": 2
-            }
-        },
-        {
-            "id": 2,
-            "manufacturer": "Nissan",
-            "model": "GT-R",
-            "price": 80000,
-            "quality": {
-                "overall": 2,
-                "mechanical": 3,
-                "powertrain": 5,
-                "body": 4,
-                "interior": 2,
-                "accessories": 2
-            }
-        },
-        {
-            "id": 3,
-            "manufacturer": "BMW",
-            "model": "M3",
-            "price": 60500,
-            "quality": {
-                "overall": 3,
-                "mechanical": 5,
-                "powertrain": 3,
-                "body": 4,
-                "interior": 5,
-                "accessories": 3
-            }
-        },
-        {
-            "id": 4,
-            "manufacturer": "Audi",
-            "model": "S5",
-            "price": 53000,
-            "quality": {
-                "overall": 4,
-                "mechanical": 1,
-                "powertrain": 1,
-                "body": 4,
-                "interior": 1,
-                "accessories": 5
-            }
-        },
-        {
-            "id": 5,
-            "manufacturer": "Audi",
-            "model": "TT",
-            "price": 40000,
-            "quality": {
-                "overall": 5,
-                "mechanical": 2,
-                "powertrain": 2,
-                "body": 3,
-                "interior": 4,
-                "accessories": 1
-            }
-        }
-    ]
+  "cars": [
+    {
+      "id": 1,
+      "manufacturer": "Porsche",
+      "model": "911",
+      "price": 135000,
+      "quality": {
+        "overall": 1,
+        "mechanical": 4,
+        "powertrain": 2,
+        "body": 4,
+        "interior": 3,
+        "accessories": 2
+      }
+    },
+    {
+      "id": 2,
+      "manufacturer": "Nissan",
+      "model": "GT-R",
+      "price": 80000,
+      "quality": {
+        "overall": 2,
+        "mechanical": 3,
+        "powertrain": 5,
+        "body": 4,
+        "interior": 2,
+        "accessories": 2
+      }
+    },
+    {
+      "id": 3,
+      "manufacturer": "BMW",
+      "model": "M3",
+      "price": 60500,
+      "quality": {
+        "overall": 3,
+        "mechanical": 5,
+        "powertrain": 3,
+        "body": 4,
+        "interior": 5,
+        "accessories": 3
+      }
+    },
+    {
+      "id": 4,
+      "manufacturer": "Audi",
+      "model": "S5",
+      "price": 53000,
+      "quality": {
+        "overall": 4,
+        "mechanical": 1,
+        "powertrain": 1,
+        "body": 4,
+        "interior": 1,
+        "accessories": 5
+      }
+    },
+    {
+      "id": 5,
+      "manufacturer": "Audi",
+      "model": "TT",
+      "price": 40000,
+      "quality": {
+        "overall": 5,
+        "mechanical": 2,
+        "powertrain": 2,
+        "body": 3,
+        "interior": 4,
+        "accessories": 1
+      }
+    }
+  ]
 }
