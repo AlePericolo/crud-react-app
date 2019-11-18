@@ -4,6 +4,7 @@ import Service from '../api/Service';
 import { Link } from 'react-router-dom'
 import ArrayQuality from "../common/ArrayQuality"
 import ObjectQuality from "../common/ObjectQaulity"
+import Wiki from "../common/Wiki"
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -18,7 +19,6 @@ class NewPage extends Component {
                 manufacturer: '',
                 model: '',
                 price: 0,
-                wiki: ''
             },
             qualityArrayButton: false,
             qualityObjButton: false,
@@ -35,24 +35,19 @@ class NewPage extends Component {
     //quality as array
     addQualityArray = (e) => {
         e.preventDefault();
-
-        console.log(this.state.data.quality);
-        console.log(Array.isArray(this.state.data.quality));
+        console.log(this.state);
 
         if (Array.isArray(this.state.data.quality)) {
-            console.log('add array');
+            //console.log('add element to array');
             this.setState(prevState => ({
                 ...prevState,
                 data: {
                     ...prevState.data,
                     quality: [...prevState.data.quality, { name: "", rating: 0 }]
                 }
-            }),
-                () => console.log(this.state),
-                this.forceUpdate()
-            )
+            }))
         } else {
-            console.log('new array');
+            //console.log('new array');
             this.setState(prevState => ({
                 data: {
                     ...prevState.data,
@@ -62,12 +57,19 @@ class NewPage extends Component {
                 this.disableButton('o'),
             )
         }
+        //add wiki
+        this.setState(prevState => ({
+            data: {
+                ...prevState.data,
+                wiki: ''
+            }
+        }))
     }
 
     //quality as object
     addQualityObject = (e) => {
         e.preventDefault();
-        console.log('object')
+        //console.log('object')
 
         this.setState(prevState => ({
             data: {
@@ -77,11 +79,10 @@ class NewPage extends Component {
         }),
             this.disableButton('a'),
         )
-
     }
 
     disableButton(p) {
-        console.log(p);
+        //console.log(p);
         if (p === 'o') {
             this.setState({ qualityObjButton: true }, () => console.log(this.state))
         }
@@ -92,17 +93,27 @@ class NewPage extends Component {
 
     handleChange = (e) => {
 
-        console.log(e);
+        //console.log(!this.state.quality);
 
         const name = e.target.name;
         const value = e.target.value;
 
-        if (['name', 'rating'].includes(e.target.name)) {
+        //e.target.name not in quality(arr+obj)
+        if (!['name', 'rating', 'overall', 'mechanical', 'powertrain', 'body', 'interior', 'accessories'].includes(name)) {
+            this.setState(
+                { data: { ...this.state.data, [name]: value } },
+                () => { this.validateField(name, value) },
+                () => { console.log(this.state.data) }
+            )
+        }
+        //quality defined: case array
+        if (this.state.data.quality && ['name', 'rating'].includes(name)) {
             let quality = [...this.state.data.quality]
-            quality[e.target.id][e.target.name] = e.target.value
+            quality[e.target.id][name] = value
             this.setState({ quality }, () => {/*console.log(this.state.data.quality)*/ })
         }
-        else if (Object.keys(this.state.data.quality).includes(name)) {
+        //quality defined: case object
+        if (this.state.data.quality && Object.keys(this.state.data.quality).includes(name)) {
             const { quality } = this.state.data
             quality[name] = value
             this.setState(
@@ -113,15 +124,6 @@ class NewPage extends Component {
                 },
                 () => { this.validateField(name, value) },
                 () => console.log(this.state.quality)
-            )
-        } else {
-
-
-
-            this.setState(
-                { data: { ...this.state.data, [name]: value } },
-                () => { this.validateField(name, value) },
-                () => { console.log(this.state.data) }
             )
         }
     }
@@ -171,7 +173,6 @@ class NewPage extends Component {
         const { data } = this.state;
         console.log(data);
 
-        /*
         Service.postApi(data)
             .then(response => {
                 console.log(response);
@@ -197,11 +198,11 @@ class NewPage extends Component {
             }).catch((error) => {
                 console.log("error-----------", error)
             });
-            */
     }
 
     render() {
 
+        console.log(this.state.data);
         let { manufacturer, model, price, quality, wiki } = this.state.data
 
         return (
@@ -273,14 +274,8 @@ class NewPage extends Component {
                                             </div>
                                         </div>
 
-                                        <div className="form-group row">
-                                            <label htmlFor="wiki" className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right">
-                                                <strong>WIKI</strong>
-                                            </label>
-                                            <div className="col-md-8 col-sm-12">
-                                                <input type="text" name="wiki" id="wiki" className="form-control form-control-sm" defaultValue={wiki} />
-                                            </div>
-                                        </div>
+                                        <Wiki wiki={wiki} />
+
                                         <div className="col text-center">
                                             <button type="submit" disabled={!this.state.formValid} className="btn btn-success my-2" title="Save">
                                                 Save <FontAwesomeIcon icon="save" size="lg" />

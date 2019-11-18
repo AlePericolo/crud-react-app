@@ -11,9 +11,6 @@ const ObjectQuality = (props) => {
 
         return (
             <div>
-
-
-
                 <div className="form-group row">
                     <label className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right">
                         <strong>QUALITY</strong>
@@ -27,7 +24,6 @@ const ObjectQuality = (props) => {
                                 <input type="number" min="0" name="overall" id="overall"
                                     className="form-control form-control-sm"
                                     defaultValue={quality.overall} />
-
                             </div>
                         </div>
                         <div className="form-group row">
@@ -38,7 +34,6 @@ const ObjectQuality = (props) => {
                                 <input type="number" name="mechanical" id="mechanical"
                                     className="form-control form-control-sm"
                                     defaultValue={quality.mechanical} />
-
                             </div>
                         </div>
                         <div className="form-group row">
@@ -49,7 +44,6 @@ const ObjectQuality = (props) => {
                                 <input type="number" name="powertrain" id="powertrain"
                                     className="form-control form-control-sm"
                                     defaultValue={quality.powertrain} />
-
                             </div>
                         </div>
                         <div className="form-group row">
@@ -60,7 +54,6 @@ const ObjectQuality = (props) => {
                                 <input type="number" name="body" id="body"
                                     className="form-control form-control-sm"
                                     defaultValue={quality.body} />
-
                             </div>
                         </div>
                         <div className="form-group row">
@@ -71,7 +64,6 @@ const ObjectQuality = (props) => {
                                 <input type="number" name="interior" id="interior"
                                     className="form-control form-control-sm"
                                     defaultValue={quality.interior} />
-
                             </div>
                         </div>
                         <div className="form-group row">
@@ -87,11 +79,6 @@ const ObjectQuality = (props) => {
                         </div>
                     </div>
                 </div>
-
-
-
-
-
             </div>
         )
     }
