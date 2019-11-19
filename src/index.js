@@ -4,7 +4,7 @@ import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 
 import HomePage from './components/container/HomePage';
 import NewPage from './components/container/NewPage';
-//import EditPage from './components/container/EditPage.js';
+import EditPage from './components/container/EditPage.js';
 import EditPage2 from './components/container/EditPage2.js';
 import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';

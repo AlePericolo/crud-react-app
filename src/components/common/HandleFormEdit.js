@@ -90,9 +90,9 @@ export default class HandleFormEdit extends React.Component {
         const newState = { ...this.state }
         newState.data[name] = value;
         this.setState(newState,
-            () => {
-                this.validateField(name, value)
-            });
+            //() => {this.validateField(name, value)},
+            () => { console.log(this.state) }
+        );
     }
 
     render() {

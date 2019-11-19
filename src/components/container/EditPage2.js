@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
 //import Title from '../common/Title'
-import HandleFormEdit from '../common/HandleFormEdit'
+import HandleFormEdit2 from '../common/HandleFormEdit2'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -41,15 +41,37 @@ class EditPage2 extends Component {
     }
 
     handleChange = (e) => {
+        //console.log(!this.state.quality);
         const name = e.target.name;
         const value = e.target.value;
-        const newState = { ...this.state }
-        newState.data[name] = value;
-        this.setState(
-            { newState },
-            () => { this.validateField(name, value) },
-            () => { console.log(this.setState) }
-        )
+        //e.target.name not in quality(arr+obj)
+        if (!['name', 'rating', 'overall', 'mechanical', 'powertrain', 'body', 'interior', 'accessories'].includes(name)) {
+            this.setState(
+                { data: { ...this.state.data, [name]: value } },
+                () => { this.validateField(name, value) },
+                () => { console.log(this.state.data) }
+            )
+        }
+        //quality defined: case array
+        if (this.state.data.quality && ['name', 'rating'].includes(name)) {
+            let quality = [...this.state.data.quality]
+            quality[e.target.id][name] = value
+            this.setState({ quality }, () => {/*console.log(this.state.data.quality)*/ })
+        }
+        //quality defined: case object
+        if (this.state.data.quality && Object.keys(this.state.data.quality).includes(name)) {
+            const { quality } = this.state.data
+            quality[name] = value
+            this.setState(
+                {
+                    data:
+                        { ...this.state.data },
+                    quality: { quality }
+                },
+                () => { this.validateField(name, value) },
+                () => console.log(this.state.quality)
+            )
+        }
     }
 
     validateField(field, value) {
@@ -83,7 +105,7 @@ class EditPage2 extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state) 
+        console.log(this.state)
     }
 
     render() {
@@ -108,13 +130,13 @@ class EditPage2 extends Component {
                                 <div className="card-body">
                                     <div className="container">
                                         <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                                            <HandleFormEdit data={this.state} />
+                                            <HandleFormEdit2 data={this.state.data} />
                                             <div className="col text-center">
                                                 <button type="submit" disabled={!this.state.formValid} className="btn btn-warning my-2" title="Edit">
                                                     Save <FontAwesomeIcon icon="save" size="lg" />
                                                 </button>
                                             </div>
-                                        </form>                                      
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +144,7 @@ class EditPage2 extends Component {
                     </div>
                 </div>
             )
-        } 
+        }
         return null
     }
 }
