@@ -35,8 +35,7 @@ class NewPage extends Component {
     //quality as array
     addQualityArray = (e) => {
         e.preventDefault();
-        console.log(this.state);
-
+        //console.log(this.state);
         if (Array.isArray(this.state.data.quality)) {
             //console.log('add element to array');
             this.setState(prevState => ({
@@ -70,7 +69,6 @@ class NewPage extends Component {
     addQualityObject = (e) => {
         e.preventDefault();
         //console.log('object')
-
         this.setState(prevState => ({
             data: {
                 ...prevState.data,
@@ -92,12 +90,9 @@ class NewPage extends Component {
     }
 
     handleChange = (e) => {
-
         //console.log(!this.state.quality);
-
         const name = e.target.name;
         const value = e.target.value;
-
         //e.target.name not in quality(arr+obj)
         if (!['name', 'rating', 'overall', 'mechanical', 'powertrain', 'body', 'interior', 'accessories'].includes(name)) {
             this.setState(
@@ -132,9 +127,7 @@ class NewPage extends Component {
         let manufacturerValid = this.state.manufacturerValid;
         let modelValid = this.state.modelValid;
         let priceValid = this.state.priceValid;
-
         //console.log(handleError);
-
         switch (field) {
             case 'manufacturer':
                 manufacturerValid = value.length > 0
@@ -148,7 +141,6 @@ class NewPage extends Component {
             default:
                 break;
         }
-
         this.setState(
             {
                 manufacturerValid: manufacturerValid,
@@ -171,8 +163,7 @@ class NewPage extends Component {
         //console.log(this.state.data) 
         //console.log(this.props);
         const { data } = this.state;
-        console.log(data);
-
+        //console.log(data);
         Service.postApi(data)
             .then(response => {
                 console.log(response);
@@ -201,10 +192,8 @@ class NewPage extends Component {
     }
 
     render() {
-
         //console.log(this.state.data);
         let { manufacturer, model, price, quality, wiki } = this.state.data
-
         return (
             <div className="container">
                 <div className="row justify-content-center">
@@ -273,9 +262,7 @@ class NewPage extends Component {
                                                 </div>
                                             </div>
                                         </div>
-
                                         <Wiki wiki={wiki} />
-
                                         <div className="col text-center">
                                             <button type="submit" disabled={!this.state.formValid} className="btn btn-success my-2" title="Save">
                                                 Save <FontAwesomeIcon icon="save" size="lg" />
@@ -291,5 +278,4 @@ class NewPage extends Component {
         )
     }
 }
-
 export default NewPage;
