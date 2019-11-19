@@ -17,9 +17,12 @@ database:
 modules:
     npm install axios --save
     npm install react-router-dom --save
-    npm install bootstrap --save
     npm install sweetalert2 --save
+    npm install @fortawesome/react-fontawesome --save
+
+/*
+    npm install bootstrap --save
     npm install valid-url --save
     npm install @fortawesome/fontawesome-svg-core --save
     npm install @fortawesome/free-solid-svg-icons --save
-    npm install @fortawesome/react-fontawesome --save
+*/
