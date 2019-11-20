@@ -10,7 +10,7 @@ const ObjectQuality = (props) => {
         let { quality } = props;
 
         return (
-            <div className="border border-light p-3 my-2">         
+            <div className="border border-light p-3 my-2">
                 <div className="form-group row">
                     <label htmlFor="overall" className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right">
                         <strong>OVERALL</strong>
@@ -26,7 +26,7 @@ const ObjectQuality = (props) => {
                         <strong>MECHANICAL</strong>
                     </label>
                     <div className="col-md-8 col-sm-12">
-                        <input type="number" name="mechanical" id="mechanical"
+                        <input type="number" min="0" name="mechanical" id="mechanical"
                             className="form-control form-control-sm"
                             defaultValue={quality.mechanical} />
                     </div>
@@ -36,7 +36,7 @@ const ObjectQuality = (props) => {
                         <strong>POWERTRAIN</strong>
                     </label>
                     <div className="col-md-8 col-sm-12">
-                        <input type="number" name="powertrain" id="powertrain"
+                        <input type="number" min="0" name="powertrain" id="powertrain"
                             className="form-control form-control-sm"
                             defaultValue={quality.powertrain} />
                     </div>
@@ -46,7 +46,7 @@ const ObjectQuality = (props) => {
                         <strong>BODY</strong>
                     </label>
                     <div className="col-md-8 col-sm-12">
-                        <input type="number" name="body" id="body"
+                        <input type="number" min="0" name="body" id="body"
                             className="form-control form-control-sm"
                             defaultValue={quality.body} />
                     </div>
@@ -56,7 +56,7 @@ const ObjectQuality = (props) => {
                         <strong>INTERIOR</strong>
                     </label>
                     <div className="col-md-8 col-sm-12">
-                        <input type="number" name="interior" id="interior"
+                        <input type="number" min="0" name="interior" id="interior"
                             className="form-control form-control-sm"
                             defaultValue={quality.interior} />
                     </div>
@@ -66,7 +66,7 @@ const ObjectQuality = (props) => {
                         <strong>ACCESSORIES</strong>
                     </label>
                     <div className="col-md-8 col-sm-12">
-                        <input type="number" name="accessories" id="accessories"
+                        <input type="number" min="0" name="accessories" id="accessories"
                             className="form-control form-control-sm"
                             defaultValue={quality.accessories} />
 

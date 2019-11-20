@@ -23,7 +23,7 @@ const ArrayQuality = (props) => {
                                 <strong>{`RATING ${index + 1}:`}</strong>
                             </label>
                             <div className="col-md-8 col-sm-12">
-                                <input type="number" name="rating" id={index} className="form-control form-control-sm" defaultValue={obj.rating} />
+                                <input type="number" min="0" name="rating" id={index} className="form-control form-control-sm" defaultValue={obj.rating} />
                             </div>
                         </div>
                     </div>
