@@ -84,7 +84,7 @@ class HomePage extends Component {
             return (
                 <div className="conatiner">
                     <div className="row justify-content-center">
-                        <div className="col-4 input-group my-3">
+                        <div className="col-4 input-group p-0 mt-5 mb-3 boxShadowSmall">
                             <div className="input-group-prepend">
                                 <label className="input-group-text bg-dark text-light" htmlFor="inputGroupSelect01">Manufacturer</label>
                             </div>

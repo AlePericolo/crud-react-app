@@ -24,10 +24,21 @@ nav a
   color: #ced4da !important
 }
 
+.form-control-sm
+{
+  border-radius: 0px !important;
+}
+
 .card
 {
   background-color: rgba(0,0,0,0.8) !important;
   color: #fff !important
+}
+
+.input-group-text
+{
+  border: 1px solid #000;
+  border-radius: 0px !important; 
 }
 
 .required-field

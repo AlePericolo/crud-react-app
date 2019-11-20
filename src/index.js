@@ -10,16 +10,18 @@ import Notfound from './components/common/NotFound';
 
 import './index.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus)
+library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGlobe, faExternalLinkAlt, faArrowLeft, faTimes, faPlus, faHome)
 
 const routing = (
     <Router>
         <div>
             <nav className="navbar navbar-expand-md bg-dark navbar-dark boxShadowSmall">
                 <div className="navbar-brand">
-                    <Link to="/">Home</Link>
+                    <Link to="/">
+                        <FontAwesomeIcon icon="home" /> Home
+                    </Link>
                 </div>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
