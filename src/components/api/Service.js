@@ -12,6 +12,15 @@ class Service {
         return axios.get(baseUrl + url);
     }
 
+    static getFiltereApi(filter) {
+        if(filter ==='All'){
+            return axios.get(baseUrl);
+        }else{
+            const url = "?manufacturer="+filter;
+            return axios.get(baseUrl + url)
+        }
+    }
+
     static deleteApi(url) {
         return axios.delete(baseUrl + url);
     }

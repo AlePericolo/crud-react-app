@@ -44,7 +44,6 @@ class HomePage extends Component {
         //console.log(this.state.data)
         if (this.state.data instanceof Array && this.state.data.length > 0){
             this.state.data.map((obj, i) => {
-                console.log(obj.manufacturer)
                 if(appManufacturerList.indexOf(obj.manufacturer) === -1){
                     appManufacturerList.push(obj.manufacturer)
                 }
@@ -54,12 +53,30 @@ class HomePage extends Component {
         //console.log(appManufacturerList);
         this.setState(
             { manufacturerList: appManufacturerList },
-            () => {console.log(this.state)}
+            //() => {console.log(this.state)}
         );
     }
 
     handleChange = (e) => {
-        console.log(e.target.value)
+        //console.log(e.target.value)
+        const filter = e.target.value
+        Service.getFiltereApi(filter)
+            .then(response => { 
+                //console.log(response) 
+                if (response.status === 200) {
+                    this.setState(
+                        { data: response.data }
+                    );
+                    }
+            })
+            .catch(function (error) {
+                console.log(error);
+                Swal.fire(error.toString())
+                    .then(() => {
+                        window.location.reload();
+                        console.log('Reload')
+                    });
+            })
     }
 
     showFilterSelect() {
