@@ -98,27 +98,26 @@ class NewPage extends Component {
             this.setState(
                 { data: { ...this.state.data, [name]: value } },
                 () => { this.validateField(name, value) },
-                () => { console.log(this.state.data) }
+                () => { /*console.log(this.state.data)*/ }
             )
         }
         //quality defined: case array
         if (this.state.data.quality && ['name', 'rating'].includes(name)) {
             let quality = [...this.state.data.quality]
             quality[e.target.id][name] = value
-            this.setState({ quality }, () => {/*console.log(this.state.data.quality)*/ })
+            this.setState(
+                { quality },
+                 () => {/*console.log(this.state.data.quality)*/ }
+                )
         }
         //quality defined: case object
         if (this.state.data.quality && Object.keys(this.state.data.quality).includes(name)) {
             const { quality } = this.state.data
             quality[name] = value
             this.setState(
-                {
-                    data:
-                        { ...this.state.data },
-                    quality: { quality }
-                },
+                { data: { ...this.state.data }, quality: { quality } },
                 () => { this.validateField(name, value) },
-                () => console.log(this.state.quality)
+                () => { /*console.log(this.state.quality*/ }
             )
         }
     }
