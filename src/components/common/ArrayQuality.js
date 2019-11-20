@@ -31,6 +31,6 @@ const ArrayQuality = (props) => {
             })
         )
     }
-    return ''
+    return null
 }
 export default ArrayQuality

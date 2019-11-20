@@ -18,6 +18,6 @@ const Wiki = (props) => {
             </div>
         )
     }
-    return ''
+    return null
 }
 export default Wiki

@@ -98,7 +98,7 @@ class DeletePage extends React.Component {
                 </div>
             )
         }
-        return '';
+        return null;
     }
 }
 

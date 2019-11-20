@@ -82,7 +82,7 @@ export default class HandleObject extends React.Component {
                     </div>
                 )
             }
-            return '';
+            return null;
         })
     }
 }
