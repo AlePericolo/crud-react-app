@@ -62,7 +62,7 @@ class HomePage extends Component {
                 </div>
             )
         }
-        return '';
+        return null;
     }
 }
 
