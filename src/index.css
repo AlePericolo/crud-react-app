@@ -44,3 +44,18 @@ nav a
   width: 100%;
   height: auto;
 }
+
+.card 
+{
+  border-radius: 0px !important;
+}
+
+.boxShadow
+{
+  box-shadow: 0 8px 15px 5px #000;
+}
+
+.boxShadowSmall
+{
+  box-shadow: 0 3px 15px 5px #000
+}

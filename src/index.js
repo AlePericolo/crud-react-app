@@ -17,7 +17,7 @@ library.add(faEye, faCarAlt, faSave, faPencilAlt, faTrashAlt, faInfoCircle, faGl
 const routing = (
     <Router>
         <div>
-            <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+            <nav className="navbar navbar-expand-md bg-dark navbar-dark boxShadowSmall">
                 <div className="navbar-brand">
                     <Link to="/">Home</Link>
                 </div>

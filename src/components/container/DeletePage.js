@@ -69,7 +69,7 @@ class DeletePage extends React.Component {
                 <div className="container" >
                     <div className="row justify-content-center">
                         <div className="col-10">
-                            <div className="card my-3">
+                            <div className="card boxShadow my-3">
                                 <div className="card-header bg-dark text-danger">
                                     <div className="d-flex justify-content-around">
                                         <Link to="/">

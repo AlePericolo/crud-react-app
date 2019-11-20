@@ -83,18 +83,18 @@ class HomePage extends Component {
         if(this.state.manufacturerList.length > 0 ){
             return (
                 <div className="conatiner">
-                <div className="row justify-content-center">
-                <div className="col-4 input-group my-3">
-                    <div className="input-group-prepend">
-                        <label className="input-group-text bg-dark text-light" htmlFor="inputGroupSelect01">Manufacturer</label>
+                    <div className="row justify-content-center">
+                        <div className="col-4 input-group my-3">
+                            <div className="input-group-prepend">
+                                <label className="input-group-text bg-dark text-light" htmlFor="inputGroupSelect01">Manufacturer</label>
+                            </div>
+                            <select name="manufacturerList"  defaultValue="All" onChange={this.handleChange} className="custom-select" id="inputGroupSelect01">
+                                {this.state.manufacturerList.map((e, key) => {
+                                    return <option key={key} value={e}>{e}</option>;
+                                })}
+                            </select>
+                        </div>
                     </div>
-                    <select name="manufacturerList"  defaultValue="All" onChange={this.handleChange} className="custom-select" id="inputGroupSelect01">
-                        {this.state.manufacturerList.map((e, key) => {
-                            return <option key={key} value={e}>{e}</option>;
-                        })}
-                    </select>
-                </div>
-                </div>
                 </div>
             )
         }
