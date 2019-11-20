@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class HandleObject extends React.Component {
 
-    handleSubElement = (object) => {
+    handleModalBody = (object) => {
 
         if (object instanceof Array) {
             return object.map((obj, k) => {
@@ -28,7 +28,7 @@ export default class HandleObject extends React.Component {
                         Show
                     </button>
                     <div className="collapse mt-2" id={`collapse${this.props.data.id}`}>
-                        {this.handleSubElement(element)}
+                        {this.handleModalBody(element)}
                     </div>
                     */}
 
@@ -45,7 +45,7 @@ export default class HandleObject extends React.Component {
                                     </button>
                                 </div>
                                 <div className="modal-body">
-                                    {this.handleSubElement(element)}
+                                    {this.handleModalBody(element)}
                                 </div>
                             </div>
                         </div>
@@ -62,6 +62,7 @@ export default class HandleObject extends React.Component {
                 )
             }
             return element
+
         }
     }
 
