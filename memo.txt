@@ -19,10 +19,3 @@ modules:
     npm install react-router-dom
     npm install sweetalert2
     npm install @fortawesome/react-fontawesome
-
-/*
-    npm install bootstrap
-    npm install valid-url
-    npm install @fortawesome/fontawesome-svg-core
-    npm install @fortawesome/free-solid-svg-icons
-*/

@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import Service from '../api/Service';
 import HandleGrid from '../common/HandleGrid';
 import Swal from 'sweetalert2'
-import { arrayExpression } from '@babel/types';
 
 class HomePage extends Component {
 
     constructor(props) {
         super(props);
         //console.log(props);
-        this.state = { 
-            data: null, 
+        this.state = {
+            data: null,
             manufacturerList: [],
-            loadComplete: false };
+            loadComplete: false
+        };
         this.addService = new Service();
     }
 
@@ -23,7 +23,7 @@ class HomePage extends Component {
                 if (response.status === 200) {
                     this.setState(
                         { data: response.data },
-                        () => {this.createListManufacturer()}
+                        () => { this.createListManufacturer() }
                     );
                 }
                 this.setState({ loadComplete: true })
@@ -39,12 +39,12 @@ class HomePage extends Component {
     }
 
     createListManufacturer = () => {
-        
+
         var appManufacturerList = []
         //console.log(this.state.data)
-        if (this.state.data instanceof Array && this.state.data.length > 0){
-            this.state.data.map((obj, i) => {
-                if(appManufacturerList.indexOf(obj.manufacturer) === -1){
+        if (this.state.data instanceof Array && this.state.data.length > 0) {
+            this.state.data.forEach((obj) => {
+                if (appManufacturerList.indexOf(obj.manufacturer) === -1) {
                     appManufacturerList.push(obj.manufacturer)
                 }
             })
@@ -61,13 +61,13 @@ class HomePage extends Component {
         //console.log(e.target.value)
         const filter = e.target.value
         Service.getFiltereApi(filter)
-            .then(response => { 
+            .then(response => {
                 //console.log(response) 
                 if (response.status === 200) {
                     this.setState(
                         { data: response.data }
                     );
-                    }
+                }
             })
             .catch(function (error) {
                 console.log(error);
@@ -80,7 +80,7 @@ class HomePage extends Component {
     }
 
     showFilterSelect() {
-        if(this.state.manufacturerList.length > 0 ){
+        if (this.state.manufacturerList.length > 0) {
             return (
                 <div className="conatiner">
                     <div className="row justify-content-center">
@@ -88,7 +88,7 @@ class HomePage extends Component {
                             <div className="input-group-prepend">
                                 <label className="input-group-text bg-dark text-light" htmlFor="inputGroupSelect01">Manufacturer</label>
                             </div>
-                            <select name="manufacturerList"  defaultValue="All" onChange={this.handleChange} className="custom-select" id="inputGroupSelect01">
+                            <select name="manufacturerList" defaultValue="All" onChange={this.handleChange} className="custom-select" id="inputGroupSelect01">
                                 {this.state.manufacturerList.map((e, key) => {
                                     return <option key={key} value={e}>{e}</option>;
                                 })}
