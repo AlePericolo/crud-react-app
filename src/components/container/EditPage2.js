@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
 //import Title from '../common/Title'
-import HandleFormEdit2 from '../common/HandleFormEdit2'
+import HandleFormEdit from '../common/HandleFormEdit'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,18 +11,10 @@ class EditPage2 extends Component {
     constructor(props) {
         super(props);
 
-        console.log("EDIT 2");
-
         this.state = {
             id: this.props.match.params.id,
-            data: null,
-            loadComplete: false,
-            error: {
-                manufacturerValid: true,
-                modelValid: true,
-                priceValid: true,
-                formValid: true
-            }
+            data: '',
+            loadComplete: false
         };
         this.addService = new Service();
     }
@@ -42,16 +34,81 @@ class EditPage2 extends Component {
             });
     }
 
+    handleObjectValue = (object, keyObj) => {
+        if (object instanceof Array) {
+            return 'array'
+        }
+        //console.log(object);
+        //console.log(keyObj);
+        return (
+            Object.keys(object).map((key, index) => {
+                //console.log(key);
+                //console.log(index);
+                return (
+                    <div key={index} className="form-group row">
+                        <label htmlFor={key} className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right"><strong>{key.toUpperCase()}:</strong></label>
+                        <div className="col-md-8 col-sm-12">
+                            {this.handleValue(object[key], key)}
+                        </div>
+                    </div>
+                )
+            })
+        )
+    }
+
+    handleValue = (data, key) => {
+        //console.log(data);
+        //console.log(key);
+        console.log(data);
+        console.log(typeof data);
+
+        if (data instanceof Object) {
+            if (data instanceof Array) {
+                return data.map((element, index) => {
+                    return (
+                        <div key={index}>
+                            <div>{this.handleObjectValue(element, index)}</div>
+                        </div>
+                    )
+                })
+            }
+            return <div>{this.handleObjectValue(data, key)}</div>
+        } else {
+            return <input type={typeof data} name={key} id={key} className="form-control form-control-sm" defaultValue={data} />
+        }
+    }
+
+    handleData = () => {
+        return (
+            Object.keys(this.state.data).map((key, index) => {
+                if (key !== 'id') {
+                    return (
+                        <div key={index} className="form-group row">
+                            <label htmlFor={key} className="col-md-4 col-sm-12 col-form-label col-form-label-sm text-md-right"><strong>{key.toUpperCase()}:</strong></label>
+                            <div className="col-md-8 col-sm-12">
+                                {this.handleValue(this.state.data[key], key)}
+                            </div>
+                        </div>
+                    )
+                }
+                return null
+            })
+        )
+    }
+
     handleChange = (e) => {
-        const name = e.target.name
-        const value = e.target.value
-        console.log(name)
-        console.log(value)
+        const name = e.target.name;
+        const value = e.target.value;
+
+        this.setState(
+            { data: { ...this.state.data, [name]: value } },
+            () => { console.log(this.state.data) }
+        )
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
+        console.log(this.state);
     }
 
     render() {
@@ -75,14 +132,14 @@ class EditPage2 extends Component {
                                 </div>
                                 <div className="card-body">
                                     <div className="container">
-                                        <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
-                                            <HandleFormEdit2 data={this.state.data} error={this.state.error} />
-                                            <div className="col text-center">
-                                                <button type="submit" className="btn btn-warning my-2" title="Edit">
-                                                    Save <FontAwesomeIcon icon="save" size="lg" />
+                                        <div className="form-group col-12 text-center">
+                                            <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
+                                                {this.handleData()}
+                                                <button onClick={this.edit} className="btn btn-warning mx-2" title="Edit">
+                                                    Edit <FontAwesomeIcon icon="save" size="lg" />
                                                 </button>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -94,4 +151,5 @@ class EditPage2 extends Component {
         return null
     }
 }
+
 export default EditPage2;
