@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
-//import Title from '../common/Title'
 import HandleGrid from '../common/HandleGrid';
 import Swal from 'sweetalert2'
 
@@ -57,7 +56,6 @@ class HomePage extends Component {
         if (this.state.loadComplete) {
             return (
                 <div className="container-fluid">
-                    {/*<Title title={'Cars'} />*/}
                     {this.createGrid()}
                 </div>
             )

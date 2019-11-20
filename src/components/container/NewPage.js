@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Service from '../api/Service';
-//import Title from '../common/Title'
 import { Link } from 'react-router-dom'
 import ArrayQuality from "../common/ArrayQuality"
 import ObjectQuality from "../common/ObjectQaulity"
@@ -197,7 +196,6 @@ class NewPage extends Component {
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-10">
-                        {/*<Title title={'New'} />*/}
                         <div className="card my-3">
                             <div className="card-header bg-dark text-success">
                                 <div className="d-flex justify-content-around">

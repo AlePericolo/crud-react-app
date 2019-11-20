@@ -1,6 +1,5 @@
 import React from 'react';
 import Service from '../api/Service';
-//import Title from '../common/Title'
 import HandleObject from '../common/HandleObject'
 import { Link } from 'react-router-dom'
 import Swal from 'sweetalert2'
@@ -70,7 +69,6 @@ class DeletePage extends React.Component {
                 <div className="container" >
                     <div className="row justify-content-center">
                         <div className="col-10">
-                            {/*<Title title={'Delete'} />*/}
                             <div className="card my-3">
                                 <div className="card-header bg-dark text-danger">
                                     <div className="d-flex justify-content-around">

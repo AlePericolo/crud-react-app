@@ -5,7 +5,6 @@ import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 import HomePage from './components/container/HomePage';
 import NewPage from './components/container/NewPage';
 import EditPage from './components/container/EditPage.js';
-import EditPage2 from './components/container/EditPage2.js';
 import DeletePage from './components/container/DeletePage.js';
 import Notfound from './components/common/NotFound';
 
@@ -27,13 +26,6 @@ const routing = (
                 </button>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav justify-content-end">
-                        {/*
-                        <li className="nav-item">
-                            <div className="nav-link">
-                                <Link to="/new">New</Link>
-                            </div>
-                        </li>
-                        */}
                         <form className="form-inline">
                             <Link to="/new">
                                 <button className="btn btn-outline-success btn-sm" type="button" title="Go to New">
@@ -48,8 +40,7 @@ const routing = (
             <Switch>
                 <Route exact path="/" component={HomePage} />
                 <Route exact path="/new" component={NewPage} />
-                {/*<Route exact path="/edit/:id" component={EditPage} />*/}
-                <Route exact path="/edit/:id" component={EditPage2} />
+                <Route exact path="/edit/:id" component={EditPage} />
                 <Route exact path="/delete/:id" component={DeletePage} />
                 <Route component={Notfound} />
             </Switch>
