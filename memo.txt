@@ -13,6 +13,7 @@ start:
 database:
     cd "database-path/"
     json-server --watch "name-database.json" --port 3001
+    npx json-server --watch "name-database.json" --port 3001 //windows
 
 modules:
     npm install axios
